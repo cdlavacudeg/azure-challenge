@@ -402,3 +402,65 @@ Retorna solo el número de bits.
 ```bash
 wc -c {file}
 ```
+
+# Utilidades de la terminal
+
+## Utilidades de red 
+
+Estas son diferentes utilidades que tenemos disponibles en la termnal para obtener información o hacer análisis de nuestra red.
+
+### Comandos
+- `ifconfig` Muestra información de nuestra red
+- `ping {website}` Permite detectar su una página está activa o no.
+- `curl {website}` Devuelve por ejemplo el HTML del sitio indicado.
+- `wget{website}` Descarga el archivo directamente a computador
+- `traceroute {website}` Traza la ruta de todas las conexiones realizadas para llegar al sitio indicado.
+- `netstart -i` muestra los dispositivos de red.
+
+## Comprimiendo archivos
+
+La terminal nos permite comprimir archivos sin necesidad de utilizar aplicaciones adicionales para realizar este tipo de acción.
+
+### Comandos
+
+- `tar -cvf {name}.tar {folder}` Comprime el directorio o el archivo seleccionado al formato `.tar` y le asigna el nombre definido por nosotros.
+
+- `tar -cvzf {name}.tar.gz {folder}` Comprime el elemento seleccionad con un tipo de compresión con gzip.
+
+- `tar -xzvf {name}` Descomprime el elemento seleccionado.
+
+- `zip -r {name}.zip {folder}` Comprime el elemento indicado con formato `.zip`.
+
+- `unzip {name}` Descomprime con formato `.zip`
+
+## Manejo de procesos
+Los procesos también los podemos manejar desde la terminal, esto puede encontrar su equivalencia con el famoso ctrl + alt + suprimir del sistema operativo Windows, donde podemos matar procesos atorados.
+
+# Comandos
+- `ps` Muestra los procesos corriendo en nuestra terminal. Todo proceso tiene un ID (PID -> process id).
+- `kill {PID}` Detiene la ejecución de un proceso.
+- `top` Muestra los procesos que están usando más recursos.
+- `fg` && `bg` foreground and background, cambia el lugar de los procesos
+
+## Editores de texto en la terminal
+
+Dentro de la terminal podemos tener diferentes opciones para utilizar editores de texto como lo puede ser `Emacs`, `Nano` o el más popular `Vim`.
+
+Para hacer uso de este último lo único que se tiene que hacer es escribir `vim` en la terminal para acceder a este.
+
+
+### Comandos
+- `vim {file}` Crea un archivo con el nombre indicado y accede al editor.
+- `:q` Cierra el editor de texto.
+- `i` Cambia al modo de inserción para acceder al modo de edición.
+- `esc` Deshabilita el modo de edición.
+- `:W` Guarda los cambios del archivo.
+- `:wq`Guarda el archivo y cierra el editor.
+
+[Vim Documentation](https://www.vim.org/docs.php)
+
+[Sintax Highlighting](https://linuxhint.com/vim_syntax_highlighting/)
+
+## Personalización de la terminal
+
+Se emplea un emulador de terminal [Tilix](https://gnunn1.github.io/tilix-web/)
