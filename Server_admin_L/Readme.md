@@ -184,8 +184,10 @@ can continue with testing or installing Nagios as follows (type
 - `clear`, `Ctrl + l` -> Limpiar la consola
 - `tail -f {archivo}` -> Seguimiento de cambios del archivo
 - `sudo chvt {#}` -> Creación de una terminal nueva
+- `history` -> Leer el historial de comandos, `!{numero de history}` ejecuta el comando en esa linea
+- `cat /usr/sbin/{nombre_comando}` Muestra el contenido de un comando
 
-Procesos
+### Procesos
 - `ps -ft tty` -> Procesos filtrando únicamente las conexiones de los usuarios
 - `ps aux` -> Procesos activos del sisteam
 - `grep regex` -> filtrar con respecto a la expresion regular
@@ -196,7 +198,7 @@ Procesos
 - `./script.sh &` -> ejecuta el archivo, muestra un proceso especifico y muestra el resultado.
 - `nohup ./script.sh &` -> genera una salida con el nombre de **nohup.out** y en el encontramos toda la información de lo que realiza el proceso. Esto es muy útil cuando realizamos despliegues en servidores porque sabemos que esta realizando el proceso.
 
-Recursos
+### Recursos
 - `cat /proc/cpuinfo | grep "processor"`-> Muestra información sobre el CPU
 - `sudo ps auxf | sort -nr -k 3 | head -5`: Muestra los 5 procesos que más uso hacen del CPU
 
@@ -207,7 +209,7 @@ Recursos
 - `free` Información de la memoria del sistema, `free -h`, información más legible.
 - `du` || `du -hsc {directorio}` Información del disco, espacio ocupado.S
 
-Parametros de red
+### Parametros de red
 - `ifconfig` Interface Configuration Listamientos de tarjetas y su direccionamiento
 - `ip a` Ip address show, tambien muestra la información de la red. flag -4 (ipv4) -6 (ipv6)
 - `host name` Identificación del equipo en todas las redes
@@ -216,7 +218,7 @@ Parametros de red
 - `curl {dominio(ej localhost)}` Simulaciones GET,POST, Request parecidas a postman
 - `wget {dominio}` Descarga de paquetes
 
-Manejo de paquetes ubuntu server
+### Manejo de paquetes ubuntu server
 - `sudo apt update` paquetes que necesitan actualización
 - `sudo apt upgrade` actualiza los paquetes
 - `sudo apt dist-upgrade` upgrade de la distro
@@ -227,14 +229,50 @@ Manejo de paquetes ubuntu server
 - `sudo snap refresh --list`
 - `sudo snap info {paquete}`
 
-Manejo de paquetes Centos
+### Manejo de paquetes Centos
 - `rpm -qa` Lista de todos los paquetes instalados
 - `rpm -qi {paquete}` información del paquete
 - `sudo yum update`
 - `rpm -e curl` Instalación paquete
 
-Nagios
+### Nagios
 - `sudo systemctl (status, start, restart, reload, stop, enable, disable, list-dependencies) nagios` Interacción con servicio nagios. 
+
+### User manager
+
+- `id` Identificación del usuario, usuarios empiezan en 1000 ( en centos empieza en 500), root es 0
+- `whoami` Identificación ddel usuario
+- `cat /etc/passwd` Archivo de todos los usuarios, no modificar para eso se emplean otros doumentes
+- `cat /etc/shadow` Password solo accede root o grupo shadow
+- `passwd {usuario}` Cambio de contraseñas del usuario
+
+#### Creación, actualización y eliminación de usuarios
+- `sudo useradd {nombre del usuario}` crear nuevo usuario
+- `sudo adduser {usuario}` Crea un usuario y solicita un password, además de otros datos, crea un home.
+- `sudo userdel {usuario}` Elimina a el usuario
+- `sudo usermod {usuario}` Modifica a un usuario
+
+#### Membresía de los grupos
+- `su - {nombre_usuario}` cambiar a otro usuario
+- `sudo su - {usuario}` Cambiar de usuario sin saber contraseña.
+- `groups {usuario}` Lista a que grupo pertenece
+- `sudo gpasswd -a {usuario} {grupo}` Añade e el usuario a el grupo especificado
+- ` sudo gpasswd -d {usuario} {grupo}` Elimina del grupo al usuario
+- `usermod -aG {grupo} {usuario}` Mover al grupo
+- `sudo -l` Muestra los permisos que tiene el usuario actual
+
+#### PAM para el control de acceso de usuarios (Centos)
+ubuntu sudo, readhat wheel.
+- `ls /etc/pam.d` Información de las configuraciones de PAM.
+- `ls /lib64/security` Acessos de pam
+- `ls /etc/security`
+- `pwscore` Verificación de contraseña, score de la calidad de una contraseña
+- `ulimit -u {numero_procesos}` Restringir el numero de procesos
+- `ulimit -a`Verificar caracteristicas del usuario
+- `vi /etc/security/time.conf` Cambior para que solo se puedan logear en ciertos tipos de horarios.
+
+
+
 
 ## Links Referencias
 
