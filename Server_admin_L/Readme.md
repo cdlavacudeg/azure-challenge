@@ -36,13 +36,149 @@ El comando `grep` nos ayuda a filtrar el resultado de un comando o archivo depen
 
 Por ejemplo, el comando `ps aux | grep platzi` imprime los procesos activos del sistema y, con ayuda del pipe, envía la lista al comando grep para filtrar el resultado, mostrando únicamente las líneas con la palabra platzi.
 
-### Monitore de recursos del sistema
+### Monitoreo de recursos del sistema
 
 El comando `top` nos permite interactuar con una interfaz gráfica que nos muestra información específica del sistema operativo: cantidad de usuarios, tareas corriendo o “durmiendo”, identificadores de los procesos, entre otras.
 
 Para ver la información de la CPU podemos usar el comando `cat /proc/cpuinfo | grep "processor"`. Recuerda que Linux hace diferencia entra mayúsculas y minúsculas, pero puedes usar el comando `grep -i` para filtrar sin estas diferencias.
 
 Para ver la información de la memoria podemos usar el comando `free` o, para que la información sea más fácil de leer, `free -h`. Y para ver el uso del disco duro está el comando `du` o `du -hsc`.
+
+## Insatalción de programas y administroción en Linux
+
+### Análisis de parametros de red
+
+Una IP es un identificador único para los equipos que están conectados a una red.
+
+Las IPs Privadas se utilizan para identificar los dispositivos dentro de una red local. Por ejemplo: los dispositivos conectados en tu casa u oficina.
+
+Las IPs Públicas son la que se asignan a cualquier dispositivo conectado a Internet. Por ejemplo: los servidores que alojan tus sitios web, el router que te da acceso a internet, entre otros.
+
+Si tu dispositivo tiene una IP pública significa que puede conectarse a otro que también tenga una. Por esto mismo, no puede haber dos dispositivos con la misma IP pública.
+
+Para encontrar la dirección IP de nuestros dispositivos podemos usar los comandos `ifconfig` en Linux y Mac o `ipconfig` en Windows. También podemos usar el comando `ip a`.
+
+Para ver el nombre/identificador de nuestro equipo en todas las redes podemos usar el comando `hostname`. También podemos ver qué dispositivo nos permite acceso a Internet con el comando `route -n`.
+
+Para identificar las IPs de diferentes dominios podemos usar el comando `nslookup nombredominio.ext`. También podemos usar el comando `curl` para realizar consultas a algún servidor.
+
+## Administración de paquetes acorde ala distribución 
+
+Cada distribución de Linux maneja su software de maneras diferentes.
+
+- Red Hat / CentOS / Fedora:
+
+    Su gestor de paquetes es `.rpm` (Red hat Package Manager). La base de datos de este gestor está localizada en `/var/lib/rpm`.
+
+    El comando `rpm -qa` nos permite listar todos los rpms instalados en la máquina. Con `rpm -i nombre-del-paquete.rpm` instalamos los paquetes y con `rpm -e nombre-del-paquete.rpm` los removemos el sistema.
+
+    Los paquetes se pueden instalar desde un repositorio sin tener que conocer la ruta del archivo o las dependencias con el comando `yum install nombre-del-paquete`.
+
+    También podemos buscar paquetes más específicos con el comando y`um search posible-nombre-del-paquete` .
+
+- Debian / Ubuntu:
+
+    Su administración de paquetes es `.deb`. Podemos realizar las instalaciones con `dpkg -i nombre-del-paquete.deb` o `repositorios apt`.
+
+    Su base de datos está localizada en `/var/lib/dpkg`. Con el comando `dpkg -l` listamos todos los debs instalados en la máquina. Instalamos los paquetes con `dpkg -i nombre-del-paquete` y los removemos del sistema con `dpkg -r nombre-del-paquete`.
+
+    Si ya tenemos software configurado podemos usar el comando `dpkg-reconfigure nombre-paquete` para volver a ejecutar el asistente de configuración (si está disponible).
+
+    También podemos realizar las instalaciones con el comando `apt install nombre-paquete` y búsquedas de paquetes con `apt search posible-nombre-paquete`.
+
+## Nagios: Desempaquetado, descompresión, compilación e instalación de paquetes 
+
+
+
+No todo el software que necesitamos se encuentra en los repositorios. Debido a esto, algunas veces debemos descargar el software, realizar un proceso de descompresión y desempaquetado para finalmente instalar la herramienta.
+
+Instalación de algunas herramientas para manejar una base de datos `MySQL`.
+
+```
+sudo apt install build-essential libgd-dev openssl libssl-dev unzip apache2 php gcc libdbi-perl libdbd-mysql-perl
+```
+
+Instalación de [Nagios](https://www.nagios.org/):
+
+```
+wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.4.tar.gz -O nagioscore.tar.gz
+```
+
+Descomprimir y desempaquetar archivos con tar:
+
+`tar xvzf nagioscore.tar.gz`
+
+Este comando creará una carpeta nagios-4.4.4. El nombre de la carpeta puede variar dependiendo de la versión que descargaste. 
+
+Entrando a esta carpeta podemos ejecutar diferentes archivos y comandos para configurar el software y realizar la instalación.
+
+- 1:
+`sudo ./configure --with-https-conf=/etc/apache2/sites-enabled`
+- 2:
+`sudo make all`
+- 3:
+`sudo make install`
+Si les da error en el paso de ejecutar `sudo make install`, primero tienen que hacer lo siguiente:
+`sudo make install-groups-users
+sudo usermod -a -G nagios www-data`
+- 4:
+`sudo make install-init`
+- 5:
+`sudo make install-commandmode`
+- 6:
+`sudo make install-config`
+- 7:
+`sudo make install-webconf`
+
+verificar `curl localhost`
+
+Por último, para administrar el servicio de nagios podemos usar el comando `sudo systemctl (status, start, restart, reload, stop, enable, disable, list-dependencies) nagios`.
+
+```
+If the main program and CGIs compiled without any errors, you
+can continue with testing or installing Nagios as follows (type
+'make' without any arguments for a list of all possible options):
+
+  make test
+     - This runs the test suite
+
+  make install
+     - This installs the main program, CGIs, and HTML files
+
+  make install-init
+     - This installs the init script in /lib/systemd/system
+
+  make install-daemoninit
+     - This will initialize the init script
+       in /lib/systemd/system
+
+  make install-groups-users
+     - This adds the users and groups if they do not exist
+
+  make install-commandmode
+     - This installs and configures permissions on the
+       directory for holding the external command file
+
+  make install-config
+     - This installs *SAMPLE* config files in /usr/local/nagios/etc
+       You'll have to modify these sample files before you can
+       use Nagios.  Read the HTML documentation for more info
+       on doing this.  Pay particular attention to the docs on
+       object configuration files, as they determine what/how
+       things get monitored!
+
+  make install-webconf
+     - This installs the Apache config file for the Nagios
+       web interface
+
+  make install-exfoliation
+     - This installs the Exfoliation theme for the Nagios
+       web interface
+
+  make install-classicui
+     - This installs the classic theme for the Nagios
+       web interface
+```
 ## Comandos
 
 - `clear`, `Ctrl + l` -> Limpiar la consola
@@ -70,6 +206,38 @@ Recursos
 
 - `free` Información de la memoria del sistema, `free -h`, información más legible.
 - `du` || `du -hsc {directorio}` Información del disco, espacio ocupado.S
+
+Parametros de red
+- `ifconfig` Interface Configuration Listamientos de tarjetas y su direccionamiento
+- `ip a` Ip address show, tambien muestra la información de la red. flag -4 (ipv4) -6 (ipv6)
+- `host name` Identificación del equipo en todas las redes
+- `route -n` Muestra la puerta de enlace predeterminada al equipo
+- `nslookup {dominio}` Revisar configuración del dominio
+- `curl {dominio(ej localhost)}` Simulaciones GET,POST, Request parecidas a postman
+- `wget {dominio}` Descarga de paquetes
+
+Manejo de paquetes ubuntu server
+- `sudo apt update` paquetes que necesitan actualización
+- `sudo apt upgrade` actualiza los paquetes
+- `sudo apt dist-upgrade` upgrade de la distro
+- `sudo apt search {paquete}` busqueda de paquetes
+- `dpkg -l` Listar todos los paquetes instalados
+- `dpkg-reconfigure {paquete}` Reconfiguración de un paquete
+- `sudo snap search {paquete}`
+- `sudo snap refresh --list`
+- `sudo snap info {paquete}`
+
+Manejo de paquetes Centos
+- `rpm -qa` Lista de todos los paquetes instalados
+- `rpm -qi {paquete}` información del paquete
+- `sudo yum update`
+- `rpm -e curl` Instalación paquete
+
+Nagios
+- `sudo systemctl (status, start, restart, reload, stop, enable, disable, list-dependencies) nagios` Interacción con servicio nagios. 
+
 ## Links Referencias
 
 [File System Tree Overview](https://help.ubuntu.com/community/LinuxFilesystemTreeOverview)
+
+[Instalación Nagios Ubuntu 20.04 LTS](https://comoinstalar.me/como-instalar-nagios-core-en-ubuntu-20-04-lts/)
