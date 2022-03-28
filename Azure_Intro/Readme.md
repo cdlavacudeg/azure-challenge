@@ -1,6 +1,6 @@
 # Introducción a la Nube con Azure
 
-## Introducción al computo en la nube
+# Introducción al computo en la nube
 
 ### Qué es la nube: ventajas y características
 La nube son instalaciones en las cuales cada una tiene de forma independiente energia electrica, refrigeración y seguridad, son llamados **Centro de Datos**.
@@ -129,6 +129,126 @@ Desventajas
 <img src="https://static.platzi.com/media/user_upload/azure-d283dca5-ff03-4521-92a0-7f96209d40d2.jpg">
 
 
+# Componentes de Azure
+
+## ¿Qué es Azure?
+
+Es un proveedor de servicios en la nube, cuenta con mas de 100 servicios distintos para ser accedidos a través de internet. Cubre prácticamente cualquier necesidad para la nube o de computo.
+
+### Ventajas
+- Preparado para el futuro
+- Crea a tu ritmo
+- Listo para cualquier tipo de nube.
+- Confiable
+- Cuenta con plataforma Microsoft Learn
+
+### Como funciona Azure:
+- A través de la virtualización (se puede realizar de forma local o en la nube en un DataCenter).
+- Basado en virtualización abstrae los elementos de una PC recibidos por un Hypervisor.
+- Se usa un orquestador encargado de recibir nuestras indicaciones y el fabric controller
+
+### Cuenta con:
+- Azure Portal (sitio web para trabajar con las servicios)
+- Azure Marketplace (Instancias de recursos desarrollados por terceros)
+
+## Cuentas de Azure
+
+### Recursos
+Instancias de los servicios disponibles: Máquinas virtuales, FaaS(Funtion as a service) discos duros y bases de datos.
+
+### Grupos de recursos
+Contenedor lógico donde se implementan y administran recursos de Azure (Aplicaciones web). Un recurso puede pertenecer a un solo GR pero puede comunicarse con recursos de otro GR.
+
+### Suscripciones
+Agrupación de cuentas de usuario y recursos creados por estas cuentas. Puede tener límites o cuotas definidas.
+
+### Grupos de administración
+
+Administran el acceso, las directivas y cumplimiento de las suscripciones. Las suscripciones heredan las condiciones de su grupo.
+
+## Suscripcionos y grupos de administración
+Se necesita de una suscripción de Azure para utilizar sus servicios:
+
+- Desarrollador: pagas por los servicios a medida que los utilices.
+- Prueba: experimentar de manera gratuita.
+- Suscripción: a través de un partner compras servicios de Azure.
+- Estudiante: a través de un email autorizado (.edu)
+
+### Limites
+- Facturación: forma de facturarse. Cada suscripción tiene su factura.
+- Control de acceso: cada suscripción tiene directivas de acceso.
+### ¿Cuándo se necesita más suscripciones?
+- Entorno: separación de entornos de trabajos como desarrollo, pruebas, aislamiento de datos, entre otros.
+- Estructura Organizacional: limitaciones según presupuesto, tiempo, por equipos o acceso a recursos.
+- Facturación: para facilitar el seguimiento de costos según entornos como producción, desarrollo o pruebas.
+- Límites por suscripción: Pueden haber algunas limitaciones de hardware por suscripción, entonces es necesario crear nuevas.
+
+### Grupos de Administración
+
+- Consideraciones:
+    - Hasta 10 000 grupos de administración en un único directorio.
+    - El árbol de grupo de administración puede admitir hasta seis niveles de profundidad.
+    - Cada grupo de administración y suscripción solo puede admitir un elemento primario.
+    - Cada grupo de administración puede tener muchos elementos secundarios.
+    - Todas las suscripciones y grupos de administración están dentro de una única jerarquía en cada directorio.
+
+## Recursos y grupos de recursos
+- Todos los recursos deden estar en un grupo, y un solo recurso puede pertenecer solo a un grupo
+- No so pueden anidar
+- Facilitan la administración y organización.
+- Cuando se elimina un grupo de recursos, también elimina todos los recursos contenidos.
+
+### Autorización 
+Utilizon permisos de control basados en roles (RBAC, Role Based Access Control)
+
+### Herramientas
+- Azure Resource Manager
+    - Plantillas en JSON 
+    - Administrar recursos por grupo
+    - Capacidod de reutilización
+    - RBAC.
+    - Etiquetas 
+    - Facturación
+
+## Regiones
+Área geográfica con por lo menos un data center. Algunos servicios son exclusivos de ciertas regiones.
+- Canada East
+- North Europe
+- South Africa North
+
+### Regiones Especiales
+
+- US DoD
+- US Gov Virginia
+- US Gov Iowa
+- China East
+- China North
+
+Azure es el proveedor con más regiones globales y en constante expansión.
+
+### Zonas de disponibilidad
+Distintos data centers en una misma región equipados con energía de emergencia, refrigeración y redes independientes.
+
+- Propósito:
+    - Permiten redudancia de servicios y datos ante errores, desastres u otros imprevistos.
+
+- Consideraciones:
+    - No todas las regiones son compatibles con zonas de disponiblidad.Esto puede implicar un costo.
+
+### Pares de regiones
+
+Regiones con por lo menos 500 km de distancia entre ambas para replicar recursos en caso de interrupciones, como:
+
+- Desastres naturales.
+- Incendios.
+- Disturbios civiles.
+- Ausencia de electricidad.
+- Daños en la red física.
+- Otros.
+
+## [Laboratorio: Crear un sitio en WordPress](https://docs.microsoft.com/es-es/learn/modules/host-a-web-app-with-azure-app-service/)
+
+## [Azure Fundamentals](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/)
 ## Links
 
 [Recursos AZ_900](https://platzi.com/blog/recursos-para-aprobar-el-az-900/)
