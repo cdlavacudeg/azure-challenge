@@ -515,4 +515,10 @@ Con el comando sudo `lynis audit system `podremos ver todas las recomendaciones 
 
 [File System Tree Overview](https://help.ubuntu.com/community/LinuxFilesystemTreeOverview)
 
-[Instalación Nagios Ubuntu 20.04 LTS](https://comoinstalar.me/como-instalar-nagios-core-en-ubuntu-20-04-lts/)s
+[Instalación Nagios Ubuntu 20.04 LTS](https://comoinstalar.me/como-instalar-nagios-core-en-ubuntu-20-04-lts/)
+
+[Introduction to Linux on Azure](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-linux/1-introduction)
+
+[Build and run a web application with the MEAN stack on an Azure Linux virtual machine](https://docs.microsoft.com/en-us/learn/modules/build-a-web-app-with-mean-on-a-linux-vm/)
+
+[Create a Linux virtual machine in Azure](https://docs.microsoft.com/en-us/learn/modules/create-linux-virtual-machine-in-azure/)
