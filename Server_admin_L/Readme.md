@@ -271,11 +271,175 @@ ubuntu sudo, readhat wheel.
 - `ulimit -a`Verificar caracteristicas del usuario
 - `vi /etc/security/time.conf` Cambior para que solo se puedan logear en ciertos tipos de horarios.
 
+### Autenticación de clientes y servidores sobre SSH
 
+- `sudo vi /etc/ssh/sshd_config` Abrir en el editor el archivo para configuración
+-`ssh-keygen` generar las llaves, y elegir una ubicación para guardar la llave privada, La llave pública tiene extension `.pub`
+- `ssh-copy-id -i directorio_de_llave/id_rsa.pub nombre_usuario@direccion_ip_del_servidor` copiar llave pública al servidor, dirección del servido se extrae con `ifconfig`
+- `ssh nombre_usuario@direccion_ip_del_servidor` Conectarnos exitosamente de forma remota
+- `ssh -v` verbose para ver mejor la información ( se pueden añadir hasta 4 v)
+
+### Arranque, detención y recarga de servicios
+
+- `sudo systemctl status servicio`: Estado de un servicio
+- `sudo systemctl enable servicio`: Habilita un servicio
+- `sudo systemctl disable servicio`: Deshabilita un servicio
+- `sudo systemctl restart servicio`: Reinicia un servicio
+- `sudo systemctl list-units -t service --all`: Lista los servicios del sistema
+- `sudo journalctl -fu servicio`: Muestra el log de un servicio
+
+- `sudo journalctl --disk -usage`: Muestra cuanto pesan los logs en el sistema operativo
+- `sudo journalctl --list`-boots: Muestra los booteos de la computadora
+- `sudo journalctl -p critic|notice|info|warning|error`: Muestra mensajes de determinada categoría de nuestros logs
+- `sudo journalctl -o json`: Muestra los logs en formato json
+
+
+###  [Apache y ngnix](https://platzi.com/clases/1667-linux/23437-nginx-y-apache-en-ubuntu-server/)
+- `sudo apt install apache2`
+- `sudo apt install nginb nginx-extras`
+- `sudo nano /etc/apache2/ports.conf`-> cambiar el puerto a 8080
+- `sudo nano /etc/apache2/sites-available/000-default.conf` -> cambiar el virtual host <VirtualHost: *:8080>.
+
+### Instalación y configuración de NGINX
+Se puede emplear como proxy o almacenamiento de caché
+- `sudo apt search nginx`
+- `sudo apt search "nginx$"`
+- `sudo apt update && sudo apt install nginx`
+- `sudo systemctl status apache2`
+- `sudo systemctl status nginx`
+- `netstat -tulpn`
+- `sudo systemctl stop apache2`
+- `sudo systemctl status apache2`
+- `netstat -tulpn`
+- `cd /etc/nginx`
+- `ls`
+- `vi ngnix.conf`
+- `cd sites-available`
+- `ls`
+- `vi default`
+- `cd /var/www/html`
+- `curl localhost`
+- `curl -I localhost`
+- `cd /etx/nginx/sites-enabled/`
+- `ll`
+
+### [Nginx aplify](https://www.nginx.com/products/nginx-amplify/)
+
+NGINX Amplify es una herramienta que permite monitorear aplicaciones y servicios de NGNIX. Nos ayuda a detectar problemas en nuestros proyectos, trackear las peticiones, conexiones, tiempos de respuesta, tráfico, uso de CPU, entre otras.
+
+- Instalar Python 2.7
+   `sudo apt install python2.7`
+- Movernos a la carpeta de Nginx `cd /etc/nginx`
+- Modificar el archivo conf.d de la siguiente manera
+```
+sudo cat > conf.d/stub_status.conf
+server{
+	listen 127.0.0.1:80;
+	server_name 127.0.0.1;
+	location /nginx_status {
+		stub_status on;
+		allow 127.0.0.1;
+		deny all;
+	}
+}
+```
+- Matar el proceso de Nginx `sudo kill -HUP "cat /var/run/nginx.pid"`
+- Reiniciar y habilitar Nginx `sudo systemctl restart nginx && systemctl enable nginx`
+
+- Logearnos en el sitio web de Nginx Amplify y seguir las [instrucciones de instalación](https://amplify.nginx.com) 
+- Iniciar el servicio de Nginx Amplify `service amplify-agent start`
+- Reiniciar Nginx `sudo systemctl restart nginx`
+
+### Monitoreo de MySQL con Nagios:
+
+- `sudo apt install mysql-server` Instalar MySQL Server.
+- `sudo vim /etc/mysql/debian.cnf`- Archivos de configuración, Obtener el password y usuario de MySQL (debian-sys-maint,TnEUgAacbDRovvSp)
+- `mysql -u debian-sys-maint -p` Iniciar sesión en MySQL, se ingresa la password
+
+- `sudo mysql_secure_installation`  Asegurar el server de la base de datos, mayor seguridad
+
+- `systemctl status apache2` Verificar el estado de apache
+
+- `sudo a2enmod rewrite cgi` Activar módulos rewrite y cgi
+
+- `sudo systemctl restart apache2`
+
+- `sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin` Crear un usuario para ingresar a Nagios
+ 
+
+- `direccion_ip_del_servidor:8080/nagios`Entrar a Nagios en nuestro navegador web, escribiendo la dirección.
+Es muy importante notar que estamos ingresando en el puerto 8080, ya que ahí es donde está funcionando Apache
+
+- `sudo apt install -y libmcrypt-dev make libssl-dev bc gawk dc build-essential snmp libnet-snmp-perl gettext`Instalar las siguientes dependencias.
+
+- `wget https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz -0 plugins.tar.gz -O plugins.tar.gz` Descargar archivo de plugins
+
+- `tar xzvf plugins.tar.gz` 
+Desempaquetar y descomprimir el archivo de plugins
+
+Ya en la carpeta de plugins que se creo con el paso anterior, configurar los mismos
+`sudo ./config`
+Verificar que no existan errores ni warnings
+
+```
+sudo /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+```
+- `sudo systemctl restart nagios`
+
+- `wget https://labs.consol.de/assets/downloads/nagios/check_mysql_health-2.2.2.tar.gz -O mysqlplugin.tar.gz` descargar plugin de MySQL
+
+- `tar xzvf mysqlplugin.tar.gz` 
+
+### Configiración de Nagios
+
+1. En la consola de MySQL, crear un usuario
+   ```sql
+   GRANT SELECT ON *.* TO 
+   '{user}'@'localhost' 
+   IDENTIFIED BY '{password}';
+   FLUSH PRIVILEGES; 
+   ```
+2. configurar nagios `sudo vi /usr/local/nagios/etc/nagios.cfg`, añadir la linea:
+`cfg_file=/usr/local/nagios/etc/objects/mysqlmonitoring.cfg`
+
+3. Crear comandos para hacer uso de nagios
+`sudo vim /usr/local/nagios/etc/objects/commands.cfg` y agregar las siguientes líneas: 
+```
+define command {
+	command_name check_mysql_health
+	command_line $USER1$/check_mysql_health -H $ARG4$ --username $ARG1$ --password $ARG2$ --port $ARG5$  --mode $ARG3$
+}
+```
+4. Crear e archivo que nombramos en la configuración en el archivo `nagios.cfg`
+
+```
+sudo vim /usr/local/nagios/etc/objects/mysqlmonitoring.cfg
+
+#Ya en el archivo, agregar las siguientes líneas
+
+define service {
+	use local-service
+	host_name localhost
+	service_description MySQL connection-time
+	check_command check_mysql_health!{user}!{password}!connection-time!127.0.0.1!3306!
+}
+```
+
+### Los logs, nuestros mejores amigos
+- `find /etc -type f` lesdo solo los archivos f (files), d (directeries), l (links)
+- `find /var/log/ -name *.log -type f` los archivos .log
+- `find /var/log/ -iname *.log -type f` los archivos .log ignore case
+- `find /var/log/ ! -name *.log -type f` ! que no sean .log
+- `sudo find /etc/ -mtime 10 2> /dev/null` busqueda de modificaciones en los ultimos 10min y cualquier error no lo plotee.
+- `grep {palabra} {archivo}` Busca la palabra sobre el archivo especifico
+- `awk '{print $1}' {dir_path}` Apuda a filtrar patrones en un archivo, organizarlos y darles formato
+- `awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr` Muestra las ip's que se conectaron a nuestro servidor
+- `awk '{print $9}' /var/log/nginx/access.log | sort | uniq -c | sort -nr` Muestra los errores que surgieron en nuestro servidor
+- [Otros servicios de logs](https://platzi.com/clases/1667-linux/23278-otros-servicios-de-logs/)
 
 
 ## Links Referencias
 
 [File System Tree Overview](https://help.ubuntu.com/community/LinuxFilesystemTreeOverview)
 
-[Instalación Nagios Ubuntu 20.04 LTS](https://comoinstalar.me/como-instalar-nagios-core-en-ubuntu-20-04-lts/)
+[Instalación Nagios Ubuntu 20.04 LTS](https://comoinstalar.me/como-instalar-nagios-core-en-ubuntu-20-04-lts/)s
