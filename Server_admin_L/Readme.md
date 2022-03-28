@@ -451,6 +451,66 @@ Las variables de entorno son un conjunto de variables globales en nuestros siste
 
 El comando `env` nos permite ver todas las variables de entorno de nuestro sistema.
 
+## Asegurando tu servidor
+
+### Entendiendo la gestión de vulnerabilidades
+ - Comodidad vs seguridad
+ - Aseguramiento es un proceso constante
+
+#### Malas practicas
+- No desactivar el usuario root
+- Realizar un login con usuario y password (sin ssh)
+- No validar la versión de software usada
+- Utilizar comandos r* o telnet
+- No identificar los servicios y puertos abiertos en el S.O
+- No gestionar correctamente los permisos de los usuarios
+
+se recomienda verificar las actualizaciones de seguridad
+```
+# Centos
+yum check-update --security
+yum update security
+# Ubuntu
+apt update
+apt upgrade
+```
+### Superficie de ataque, Principio del menor privilegio
+La Superficie de Ataque es el conjunto de vulnerabilidades o datos conocidos que pueden ser explotados por un atacante informático. Cada servicio de nuestras aplicaciones es un nuevo punto de entrada a nuestra red. No solo debemos proteger nuestros servidores, también debemos proteger todos los servicios que corren en él.
+
+#### Software útil para la gestión de vulnerabilidades
+- Lynis: Analiza nuestro servidor y nos da recomendaciones
+
+#### Manuales y frameworks útiles para la seguridad de nuestro servidor
+
+- SCAP: El Security Content Automation Protocol es un conjunto de reglas sobre la expresión y manipulación de información relacionada con configuraciones y fallos.
+- OWASP: El Open Web Application Security Project es un proyecto de código abierto destinado a pelear contra la inseguridad informática
+
+### El firewall y sus reglas
+Comandos
+
+- `sudo ufw status` Muestra el estado (activo/inactivo) y las reglas del firewall. Con el modificador `numbered` me muestra las reglas numeradas
+- `sudo ufw (enable, reset, status)` activar, desactivar o ver el estado y reglas de nuestro firewall.
+- `sudo ufw allow puerto:` Habilita un puerto
+- `sudo ufw enable`Enciende el firewall
+- `sudo ufw delete numero_de_regla`Borra una regla
+- `sudo ufw allow from direccion_ip proto protocolo to any port puerto`Restringe las direcciones ip que pueden conectarse a cierto puerto. Recordar que SSH trabaja con el protocolo TCP
+- `sudo ufw reset` Elimina todas las reglas
+
+Abrir al público únicamente el puerto 80 (http), 443 (https). Para un conjunto de IP’s específicas, habilitar el puerto 22 (ssh)
+
+### Escaneo de puertos con NMAP y NIKTO desde Kali Linux
+[Instalación de Kali](https://platzi.com/clases/1583-ethical-hacking/19725-instalacion-del-entorno-de-pruebas-kali-linux/)
+- `nmap -sV -sC -0 -oA nombre_de_archivo dirección_ip_del_servidor` Realiza un mapeo de la red
+- `nikto -h ip_del_host -o nombre_de_archivo` Escanea vulnerabilidades en un servidor
+
+### Lynis Herramienta de auditoria de seguridad en Linux
+
+
+- `sudo apt install lynis`Instalación de 
+
+Con el comando sudo `lynis audit system `podremos ver todas las recomendaciones y sugerencias que nos da lynis para mejorar la seguridad de nuestro sistema.
+
+
 ## Links Referencias
 
 [File System Tree Overview](https://help.ubuntu.com/community/LinuxFilesystemTreeOverview)
