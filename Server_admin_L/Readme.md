@@ -437,6 +437,19 @@ define service {
 - `awk '{print $9}' /var/log/nginx/access.log | sort | uniq -c | sort -nr` Muestra los errores que surgieron en nuestro servidor
 - [Otros servicios de logs](https://platzi.com/clases/1667-linux/23278-otros-servicios-de-logs/)
 
+## Las Bases de bash
+¿Qué es Bash? Es una shell de UNIX y el intérprete de comandos por defecto en la mayoría de distribuciónes GNU/Linux. Se pueden crear scripts, los cuales por convención terminan con la extensión .sh
+
+- `#!/bin/bash` Definición de un interprete para que lo que sigue se ejecute con Bash
+- `VARIABLE="Hola mundo"` Definición de una variable
+- `echo $VARIABLE` Imprimir en pantalla
+- `COPY_PWD=$(pwd)` Guarda el resultado de pwd en una variable
+- `# comentario` Comentarios en bash
+
+### Las variables y su entorno de ejecución
+Las variables de entorno son un conjunto de variables globales en nuestros sistemas que nos permiten acceder de forma más fácil a una ruta o un conjunto de comandos difíciles de recordar. Podemos usarlas en la terminal y en los archivos de bash.
+
+El comando `env` nos permite ver todas las variables de entorno de nuestro sistema.
 
 ## Links Referencias
 
