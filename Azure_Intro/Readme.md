@@ -633,6 +633,104 @@ Se configura la maquina se abstraen los servidore
 - Multi-Factor Authentication
 - Inicio de Sesión Único (SSO)
 
+## Privacidad, cumplimiento y protección de datos
+
+### ¿Cumplimiento?
+Cumplir con una ley, estándar, conjunto de directrices, normas o requerimientos.
+
+- Globales
+- Gubernamentales
+- Sectoriales
+- Regionales
+
+### Declaración de privacidad
+
+- Explica qué datos personales recopila Microsoft, cómo los usa y para qué.
+- Abarca todos sus servicios, sitios, software, servidores y dispositivos.
+
+### Términos de los servicios en línea
+- Contrato legal entre Microsoft y el cliente.
+- Detalla las obligaciones de ambas partes respecto al procesamiento y seguridad de los datos.
+- Aplica a servicios bajo licencia.
+### Anexo de protección de datos (Data Protection Addendum)
+- Define términos de seguridad y procesamiento de datos para servicios en línea:
+    - Cumplimiento de leyes
+    - Revelación de datos
+    - Seguridad de datos
+
+## Planeación y administración de costos
+### Calculadora de costo total de propiedad(TOC)
+- Ayuda a calcular los costos de Azure vs. local.
+- Deben considerarse costos indirectos, diferencias de zona, promedios, etc.
+### ¿Cómo funciona?
+1. Definir cargas de trabajo.
+1. Ajustar supuestos.
+1. Consultar informe.
+
+### Comprar servicios
+- Contratos Enterprise (B2B).
+- En la web.
+- Proveedor de soluciones (Microsoft partner)
+
+### ¿Qué afecta a los costos?
+- Tipo de recurso.
+- Medidores de uso: tiempo, tráfico, tamaños y cantidades.
+- Uso de recursos.
+- Región.
+
+### Reducción de costos
+#### ¿Qué afecta a los costos?
+- Estimar antes de implementar.
+- Azure Advisor.
+- Limitar presupuestos.
+- Pagar por adelantado.
+- Licenciamiento.
+- Disponer de regiones y ubicaciones de bajo costo.
+- Investigar ofertas de ahorro.
+- Azure Cost Management + Billing.
+- Etiquetas para identificar costos.
+- Cambiar el tamaño de recursos.
+- Desasignar recursos.
+- Eliminar recursos no utilizados.
+- Migrar de IaaS a PaaS.
+
+
+## Acuerdos de nivel de servicio y ciclo de vida
+
+Contrato formal entre empresa de servicios y cliente.
+Define estándares de rendimiento que Microsoft se compromete a brindar.
+
+### ¿Qué incluyen?
+
+- Introducción.
+- Términos generales.
+- Detalles del SLA (Service Level Agreement).
+
+### Importancia
+- Entender:
+    - Garantías de servicio.
+    - Hacerlas efectivas.
+    - Disponibilidades.
+- Creditos de servicio
+    - <95% 100%
+
+### Elementos para aumentar SLA
+
+- Tipo de discos.
+- Niveles superiores de servicio.
+- Redundancia en regiones.
+- Redundancia en zonas de disponibilidad.
+### Ciclo de vida
+Forma en que cada servicio está disponible.
+
+- Fases:
+    - Desarrollo
+    - Preliminar
+    - Disponibilidad general (GA)
+    - Desaconsejado
+
+
+[Contrato de nivel de servicio](https://azure.microsoft.com/es-mx/support/legal/sla/)
 ## Laboratorios
 [Azure Database Migration](https://azure.microsoft.com/es-mx/services/database-migration/)
 
