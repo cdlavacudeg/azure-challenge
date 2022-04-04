@@ -313,3 +313,165 @@ You can make sure your session host virtual machines (VMs) run near apps and ser
 User sign-in to Azure Virtual Desktop is fast because user profiles are containerized by using FSLogix. At sign-in, the user profile container is dynamically attached to the computing environment. The user profile is immediately available and appears in the system exactly like a native user profile.
 
 You can provide individual ownership through personal (persistent) desktops. For example, you might want to provide personal remote desktops for members of an engineering team. Then they can add or remove programs without impacting other users on that remote desktop.
+
+--- 
+# Explore Azure networking services
+
+## Azure Virtual network fundamentals
+You want to keep your existing IP addressing scheme and network appliances while ensuring that any data transfer is secure.
+
+### What is azure virtial networking?
+Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers. You can think of an Azure network as an extension of your on-premises network with resources that links other Azure resources.
+
+Azure virtual networks provide the following key networking capabilities:
+
+- Isolation and segmentation
+- Internet communications
+- Communicate between Azure resources
+- Communicate with on-premises resources
+- Route network traffic
+- Filter network traffic
+- Connect virtual networks
+
+### Isolation and segmentation
+Azure Virtual networks allocs you to create multiple isolated virtual networks.When you set up a virtual network, you define a private IP address space by using either public or private IP address ranges. The public IP range only exist within
+the virtual network and is not internet routable. You can divide that IP address space into subnets and allocate part of the difned address to each named subnet.
+
+For name resolution, you can use the use the name resolution service that's built in to Azure. You can also can configure the virtual network to use either on internal or an external DNS server.
+
+### Internet communications
+A VM in Azure con connect to the internet by default. You can enable incoming connections from the internet by assigning a public IP address to the VM or putting the VM behind a public load balancer. For VM managenent, You con conect via Azure CLI, Remote Desktop Protocol, or Secure Shell.
+
+### Communicate between Azure resources
+You'll want to enable Azuer resources to communicate securely with each other. You can do that in one of two ways:
+
+- **Virtual networks** can connect not only VMs but other Azure resorces, such as the App Service Environment for Power Apps, Azure Kubernets Service, and Azure Virtual machine scale sets.
+
+- **Service end points** You can use service endpoints to connect to other Azure resource types, such as azure SQL databases and storage accounts. This approach enables you to link multiple Azure resources to virtual networks to improve security and provide optimal routing between resorces.
+
+### Communicate with on-premises resources
+
+Azure virtual networks enable you to link resources together in your on-premises enviroment and within your Azure subscription. In effect, you can create a network that spans both your local and cloud environments. There are three mechanisms for you to achive this connectivity:
+
+- **Point-to-site virtual private networks** The client computer initiates an encryted VPN conection to connect that computer to the Azure virtual network.
+
+- **Site-to-site virtual private networks** A site-to-site VPN links your on-premises VPN device or gateway to the Azure VPN gateway in an virtual network. The connection is encryted and works over the internet.
+
+- **Azure ExpressRoute** For enviroments where you need greater bandwith and even higher levels of security, Azure ExpressRoute is the best approach.It provides a dedicated private connectivity to Azure that doesn't travel over the internet.
+
+### Route nework traffic
+
+By default, Azure routes traffic between subnets on any connected virtual networks, on-premises networks, and internet. You also can control routing and override those settings, as follows:
+- **Route tables** A route table allows you to define rules about how traffic should be directed. You con create custom route tables that control how packets are routed between subnets.
+
+- **Border Gateway Protocol(BGP)** Works with Azure VPN gateways, Azure Route Server, or ExpresRoute to propagate on-premises BGP routes to Azure virtual networks.
+
+### Filter network traffic
+Azure virtual networks enable you to filter traffic between subnets by using the following approaches:
+
+- **Network security groups** A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
+
+- **Network virtual appliances** A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
+
+
+### Connect virtual networks
+You can link virtual networks together by using virtual network peering. Peering enables resources in each virtual network to communicate with each other. These virtual networks can be in separate regions, which allows you to create a global interconnected network through Azure.
+
+UDR is user-defined routes. UDR is a significant update to Azure’s Virtual Networks as this allows network administrators to control the routing tables between subnets within a VNet, as well as between VNets, thereby allowing for greater control over network traffic flow.
+
+### [Azure virtual networks settings](https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/azure-virtual-network-settings)
+
+
+## [Azure VPn Gateway fundamentals](https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/azure-vpn-gateway-fundamentals)
+
+VPNs use an encrypted tunnel within another network. They're typically deployed to connect two or more trusted private networks to one another over an untrusted network (typically the public internet). Traffic is encrypted while traveling over the untrusted network to prevent eavesdropping or other attacks.
+
+### VPN gateways
+Is a type of virtual network gateway. Azure VPN Gateway instances are deployed in a dedicated subnet of the virtual network and enable the following connectivity:
+- Connect on-premises datacenters to virtual networks through a site-to-site connection.
+- Connect individual devices to virtual networks through a point-to-site connection.
+- Connect virtual networks to other virtual networks through a network-to-network connection.
+
+All data is encrypted inside a private tunnel as it crosses the internet. You can deploy only one VPN gateway in each virtual network, but you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
+
+When you deploy a VPN gateway, you specify the VPN type: either policy-based or route-based. The main difference between these two types of VPNs is how traffic to be encrypted is specified. 
+
+
+#### Policy-based VPNs
+
+Policy-based VPN gateways specify statically the IP address of packets that should be encrypted through each tunnel. This type of device evaluates every data packet against those sets of IP addresses to choose the tunnel where that packet is going to be sent through.
+
+Key features of policy-based VPN gateways in Azure include:
+
+- Support for IKEv1 only.
+- Use of static routing, where combinations of address prefixes from both networks control how traffic is encrypted and decrypted through the VPN tunnel. The source and destination of the tunneled networks are declared in the policy and don't need to be declared in routing tables.
+- Policy-based VPNs must be used in specific scenarios that require them, such as for compatibility with legacy on-premises VPN devices.
+
+#### Route-based VPNs
+If defining which IP addresses are behind each tunnel is too cumbersome, route-based gateways can be used. With route-based gateways, IPSec tunnels are modeled as a network interface or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
+
+Use a route-based VPN gateway if you need any of the following types of connectivity:
+
+-Connections between virtual networks
+-Point-to-site connections
+-Multisite connections
+-Coexistence with an Azure ExpressRoute gateway
+
+Key features of route-based VPN gateways in Azure include:
+
+- Supports IKEv2
+- Uses any-to-any (wildcard) traffic selectors
+- Can use dynamic routing protocols, where routing/forwarding tables direct traffic to different IPSec tunnels In this case, the source and destination networks aren't statically defined as they are in policy-based VPNs or even in route-based VPNs with static routing. Instead, data packets are encrypted based on network routing tables that are created dynamically using routing protocols such as Border Gateway Protocol (BGP).
+
+###  Deploy VPN gateways
+Before you can deploy a VPN gateway, you'll need some Azure and on-premises resources.
+
+#### Required Azure resources
+You'll need these Azure resources before you can deploy an operational VPN gateway:
+
+- Virtual network. Deploy a virtual network with enough address space for the additional subnet that you'll need for the VPN gateway. The address space for this virtual network must not overlap with the on-premises network that you'll be connecting to. You can deploy only one VPN gateway within a virtual network.
+
+- GatewaySubnet. Deploy a subnet called GatewaySubnet for the VPN gateway. Use at least a /27 address mask to make sure you have enough IP addresses in the subnet for future growth. You can't use this subnet for any other services.
+
+- Public IP address. Create a Basic-SKU dynamic public IP address if you're using a non-zone-aware gateway. This address provides a public-routable IP address as the target for your on-premises VPN device. This IP address is dynamic, but it won't change unless you delete and re-create the VPN gateway.
+
+- Local network gateway. Create a local network gateway to define the on-premises network's configuration, such as where the VPN gateway will connect and what it will connect to. This configuration includes the on-premises VPN device's public IPv4 address and the on-premises routable networks. This information is used by the VPN gateway to route packets that are destined for on-premises networks through the IPSec tunnel.
+
+- Virtual network gateway. Create the virtual network gateway to route traffic between the virtual network and the on-premises datacenter or other virtual networks. The virtual network gateway can be either a VPN or ExpressRoute gateway, but this unit only deals with VPN virtual network gateways. (You'll learn more about ExpressRoute in a separate unit later in this module.)
+
+- Connection. Create a connection resource to create a logical connection between the VPN gateway and the local network gateway.
+
+    - The connection is made to the on-premises VPN device's IPv4 address as defined by the local network gateway.
+    - The connection is made from the virtual network gateway and its associated public IP address.
+
+    You can create multiple connections.
+
+## [Azure ExpressRoute fundamentals](https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/express-route-fundamentals)
+
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+
+ExpressRoute connections don't go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, consistent latencies, and higher security than typical connections over the Internet.
+
+### Features and benefits of ExpressRoute
+There are several benefits to using ExpressRoute as the connection service between Azure and on-premises networks.
+
+- Layer 3 connectivity between your on-premises network and the Microsoft Cloud through a connectivity provider. Connectivity can be from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
+- Connectivity to Microsoft cloud services across all regions in the geopolitical region.
+- Global connectivity to Microsoft services across all regions with the ExpressRoute premium add-on.
+- Dynamic routing between your network and Microsoft via BGP.
+- Built-in redundancy in every peering location for higher reliability.
+- Connection uptime SLA.
+- QoS support for Skype for Business.
+
+### Connectivity to Microsoft cloud services
+ExpressRoute enables direct access to the following services in all regions:
+
+- Microsoft Office 365
+- Microsoft Dynamics 365
+- Azure compute services, such as Azure Virtual Machines
+- Azure cloud services, such as Azure Cosmos DB and Azure Storage
+- Microsoft 365 was created to be accessed securely and reliably via the internet. For this reason, we recommend the use of ExpressRoute for specific scenarios. 
+
+### Security considerations
+With ExpressRoute, your data doesn't travel over the public internet, so it's not exposed to the potential risks associated with internet communications. ExpressRoute is a private connection from your on-premises infrastructure to your Azure infrastructure. Even if you have an ExpressRoute connection, DNS queries, certificate revocation list checking, and Azure Content Delivery Network requests are still sent over the public internet.
+
