@@ -475,3 +475,55 @@ ExpressRoute enables direct access to the following services in all regions:
 ### Security considerations
 With ExpressRoute, your data doesn't travel over the public internet, so it's not exposed to the potential risks associated with internet communications. ExpressRoute is a private connection from your on-premises infrastructure to your Azure infrastructure. Even if you have an ExpressRoute connection, DNS queries, certificate revocation list checking, and Azure Content Delivery Network requests are still sent over the public internet.
 
+--- 
+## Explore Azure Storage services
+
+### [Azure Storage account fundamentals](https://docs.microsoft.com/en-us/learn/modules/azure-storage-fundamentals/azure-storage-accounts)
+
+### Disk storage fundamentals
+
+Provides disks for Azure virtual machines, Applications and other services can access and use these disks as needed, similar to how they would in on-premises scenarios.
+
+Disks come in many different sizes and performance levels, from solid-state drives (SSDs) to traditional spinning hard disk drives (HDDs), with varying performance tiers.
+
+### Azure Blob storage fundamentals
+It can store massive amounts of data, such as text or binary data. Azure Blob Storage is unstructured, meaning that there are no restrictions on the kinds of data it can hold. Blob Storage can manage thousands of simultaneous uploads, massive amounts of video data, constantly growing log files, and can be reached from anywhere with an internet connection.
+
+One advantage of blob storage over disk storage is that it does not require developers to think about or manage disks; data is uploaded as blobs, and Azure takes care of the physical storage needs.
+
+Blob Storage is ideal for:
+
+- Serving images or documents directly to a browser.
+- Storing files for distributed access.
+- Streaming video and audio.
+- Storing data for backup and restore, disaster recovery, and archiving.
+- Storing data for analysis by an on-premises or Azure-hosted service.
+- Storing up to 8 TB of data for virtual machines.
+
+### Azure Files fundamentals
+
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block and Network File System (preview) protocols. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+
+Typical usage scenarios would be to share files anywhere in the world, diagnostic data, or application data sharing.
+
+Use Azure Files for the following situations:
+
+- Many on-premises applications use file shares. Azure Files makes it easier to migrate those applications that share data to Azure. If you mount the Azure file share to the same drive letter that the on-premises application uses, the part of your application that accesses the file share should work with minimal changes, if any.
+- Store configuration files on a file share and access them from multiple VMs. Tools and utilities used by multiple developers in a group can be stored on a file share, ensuring that everybody can find them, and that they use the same version.
+- Write data to a file share, and process or analyze the data later. For example, you might want to do this with diagnostic logs, metrics, and crash dumps.
+
+### Understand Blob access tiers
+
+Data stored in the cloud can grow at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be different based on how it's generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed after it's stored. To accommodate these different access needs, Azure provides several access tiers, which you can use to balance your storage costs with your access needs.
+
+- Hot access tier: Optimized for storing data that is accessed frequently (for example, images for your website).
+- Cool access tier: Optimized for data that is infrequently accessed and stored for at least 30 days (for example, invoices for your customers).
+- Archive access tier: Appropriate for data that is rarely accessed and stored for at least 180 days, with flexible latency requirements (for example, long-term backups).
+
+The following considerations apply to the different access tiers:
+
+- Only the hot and cool access tiers can be set at the account level. The archive access tier isn't available at the account level.
+- Hot, cool, and archive tiers can be set at the blob level, during upload or after upload.
+- Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
+- Archive storage stores data offline and offers the lowest storage costs, but also the highest costs to rehydrate and access data.
+
