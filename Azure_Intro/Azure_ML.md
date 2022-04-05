@@ -527,3 +527,58 @@ The following considerations apply to the different access tiers:
 - Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
 - Archive storage stores data offline and offers the lowest storage costs, but also the highest costs to rehydrate and access data.
 
+---
+
+# [Explore Azure database and analytics services](https://docs.microsoft.com/en-us/learn/modules/azure-database-fundamentals/?WT.mc_id=cloudskillschallenge_495571f3-ba53-426a-b5cc-2885cf229e8b)
+
+## Azure Cosmos DB
+
+Is a globally distributed, multi-model database service. You can elastically and independently scale throughput and storage across any number of Azure regions worldwide.Azure Casmos DB provides comprehensive service level agreements for troughput, latency, availability, and consisitency guarantees.
+
+Azure Cosmos DB is flexible. At the lowest level, it stores data in atom-record-sequenct(ARS) format. The data is then abstracted and projected as an API, which you specify when you're creating your database (SQL, MongoDB, Cassandra, Tables, and Gremlin).
+
+
+## Azure SQL Database
+Is a relational database based on the latest stable version of the Microsoft SQL Server database engine. You can use it to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure.
+
+Azure SQL Database is as platform as a service (PaaS) database engine. It handles most of the databose management functions, such as upgrading, patching, backups, and monitoring, without user involment. Provides 99.99 percent availability. It enables you to process both relational data and non-relational structuros, such as graphs, JSON, spatial, and XML.
+
+## Azure Database for MySQL
+Is a relational database service in the cloud, and it's based on the MySQL Community Edition database engine, versions 5.6,5.7, and 8.0. Provides 99.99 percent availability service level agreement from Azure.
+
+Delivers:
+- Built-in high availability with no additional cost.
+- Predictable performance and inclusive, pay-as-you-go pricing.
+- Scale as needed, within seconds.
+- Ability to protect sensitive data at-rest and in-motion.
+- Automatic backups.
+- Enterprise-grade security and compliance.
+
+## Azure Database for PostgreSQL
+The server software is based on the community version of the opens-source PostgreSQL database engine.It delivers the following benefits:
+- Built-in high availability, There's no additional configuration, replication, or cost required to make sure your applications are always available.
+- Simple and flexible pricing, You have predictable performance based on a selected pricing tier choice that includes software patching, automatic backups, monitoring, and securityp
+- Scale pu or dawn as needed, withen seconds.
+- Automatic backups
+- Enterprise-grade security and compliance.
+
+## Azure SQL Managed Instance
+Is a scalable cloud data service thot provides the broadest SQL Server database engine compatibility with all the benefits of a fully managed platform as a service. Depending on your scenario, Azure SQL Managed Instance migth offer more options for your database needs.
+- [Features comparasion: SQL Database and SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison/)
+
+## Big data and analytics
+
+Open-source cluster technologies have been developed, over time, to try to deal with these large datasets. Microsoft Azure supports a broad range of technologies and services to provide big data and analytic solutions, including Azure Synapse Analytics, Azure HDInsight, Azure Databricks, and Azure Data Lake Analytics.
+
+### Azure Synapse Analytics
+Is a limitless analytics service that brings together enterprise data warehousing and big data analytics.
+
+### Asuve HDInsight
+Is a fully managed, open-source analytycs service for enterprises.It makes it easier, faster, and more cost-effective to process massive amounts of data.
+
+### Azure Databricks
+Helps you unlock insights from all your data and build artificial intelligence solutions.
+
+### Azure Data Lake Analytics
+Is an on-demand analytics job service that simplifies bigdata. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights.
+
