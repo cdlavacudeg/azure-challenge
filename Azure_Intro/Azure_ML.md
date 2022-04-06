@@ -582,3 +582,25 @@ Helps you unlock insights from all your data and build artificial intelligence s
 ### Azure Data Lake Analytics
 Is an on-demand analytics job service that simplifies bigdata. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights.
 
+
+---
+
+# [Choose the best Azure IoT service for your application](https://docs.microsoft.com/en-us/learn/modules/iot-fundamentals/?WT.mc_id=cloudskillschallenge_495571f3-ba53-426a-b5cc-2885cf229e8b)
+
+## Identify the product options
+Iot enables devices to gather and then relay information for data analysis. Smart devices are equipped with sensors that collect data.
+
+By using Azure IoT services, devices that are equippe with these kinds of sensors and that can connect to the internet could send their sensor readings to a specific end point Azure via message. The message's data is then collected and aggregated, and it co be converted into reports and alerts. Alternately, all devices could be updated with new frimware to fik issues or add new functionality by sending software updates from Azure IoT services to each device.
+
+### Azure IoT Hub
+Is a managed service that's hosted in the cloud and that acts as a centrol message hub for bi-directinal communication between your IoT application and the devices it manages. You con use Azure IoT Hub to build IoT solutions with reliable and secure communicotions between millions of IoT devices and a cloud-hosted solution back end. You can conect virtually any device to your IoT hub.
+
+
+### Azure IoT central 
+Builds on top of IoT Hub by adding a dasboard that allows you to connect, monitor, and manage your IoT devices. The visual user interface (UI) makes it easy to quickly connect new devices and watch as they begin sending telemetry or error messages. You can watch the overall performance across all devices in aggregate, and you can set up alerts that send notifications when a specific device needs maintenance. Finally, you can push firmware updates to the device.
+
+
+### Azure Sphere 
+Creates an end-to-end, highly secure IoT solution for customers that encompasses everything from the hardware and operating system on the device to the secure mothon of sendig messages from the device to the message hub. Azure Sphere has built-in communications and security features for internet-connected devices.
+
+
