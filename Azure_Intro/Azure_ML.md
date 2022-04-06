@@ -603,4 +603,30 @@ Builds on top of IoT Hub by adding a dasboard that allows you to connect, monito
 ### Azure Sphere 
 Creates an end-to-end, highly secure IoT solution for customers that encompasses everything from the hardware and operating system on the device to the secure mothon of sendig messages from the device to the message hub. Azure Sphere has built-in communications and security features for internet-connected devices.
 
+---
+
+# [Choose tho best AI service for your needs](https://docs.microsoft.com/en-us/learn/modules/ai-machine-learning-fundamentals/?WT.mc_id=cloudskillschallenge_495571f3-ba53-426a-b5cc-2885cf229e8b)
+
+Artifical Intelligence (AI) is a category of computing that adapts and improves its decision-making ability over time based on its successes and failures. Microsoft Azure provides several AI solutions to choose from, each one depending on the problem you're trying to solve.
+
+## Identify the product options
+AI is a broad classification of computing that allows a software system to perceive its environment and take action that maximizes its chance of succesfully achieving its goal. A goal of AI is to create a software system that's able to adapt, or learn something on its own without being explicity programmed to do it.
+
+There are two basic approaches to AI. The first is to employ a deep learning system that's modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience.
+
+The second approach is machine learning, a data science technique that uses existing data to train a model, test it, and then apply the model to new data to forecast future behaviors, outcomes, and trends.
+
+Forecasts or predictions from machine learning can make apps and devices smarter
+
+### Azure Machine Learning
+Is a platform for making predictions. It consists of tools and services that allow you to connect to data to train and test models to find one that will most accurately predict a future result. After you've run experiments to test the model, you can deploy and use it in real time via a web API endpoint.
+
+### Azure Cognitive Services
+Provides prebuilt machine learning models that enable applications to see, hear, speak, understand, and even begin to reason. Use Azure Cognitive Services to solve general problems, such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these service. Developers access Azure Cognitive Services via APIs and can easily include these features in just a few lines of code.
+
+### Azure Bot service
+Azure Bot Service and Bot Framework are platforms for creating visual agents that understand and reply to questions just like a human. Azure Bot Service is a bit different from Azure Machine Learning and Azure Cognitive Services in that it has a specific use case. Namely, it creates a virtual agent that can intelligently communicate with humans. Behind the scenes, the bot you build uses other Azure services, such as Azure Cognitive Services, to understand what their human counterports are asking for.
+
+Bots can be used to shift simple, repetitive tasks, such as taking a dinner reservation or gathering profile information, on to automated systems that might no longer require direct human intervention. Users converse with a bot by using text, interactive cards, and speech. A bot interaction can be a quick question and answer, or it can be a sophisticated conversation that intelligently provides access to services.
+
 
