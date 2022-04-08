@@ -18,7 +18,7 @@ It can prepare you for the certification [AZ-900: Microsoft Azure Fundamentals](
 |Describe core Azure services|15-20%|
 |Describe core solutions and management tools on Azure|10-15%|
 |Describe general security and network security features|10-15%|
-|Describe identity, governance, privacy, and compliance features|20-25%|
+|Describe identity, governance, privacy and compliance features|20-25%|
 |Describe Azure cost management and Service Level Agreements|10-15%|
 
 ## What is cloud computing?
@@ -52,14 +52,14 @@ Uses virtualization separates hadware and OS using an hypervisor.
 
 Is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription by using a graphical user interface. You can:
 
-- Build, manage, and monitor everything from simple web apps to complex cloud deployments.
+- Build, manage and monitor everything from simple web apps to complex cloud deployments.
 - Create custom dashboards for an organized view of resources.
-- Configure accessibility options for an optimal experience.
+- Configure accessibility options for and optimal experience.
 
 ## What is Azure Marketplace?
 It helps connect users with Microsoft partners, independent software vendors, and startups that are offering their solutions and services, which are optimized to run on Azure. 
 
-Azure Marketplace customers can find, try, purchase, and provision applications and services from hundreds of leading service providers. All solutions and services are certified to run on Azure.
+Azure Marketplace customers can find, try, purchase and provision applications and services from hundreds of leading service providers. All solutions and services are certified to run on Azure.
 
 ## Tour of Azure services
 
@@ -130,7 +130,7 @@ To create and use Azure services, you need an Azure subscription. When you're wo
 
 ## Discuss different types of cloud models
 
-### What are public, private, and hybrid clouds
+### What are public, private and hybrid clouds
 
 |Deployment model |Description|
 |--------|------|
@@ -140,8 +140,7 @@ To create and use Azure services, you need an Azure subscription. When you're wo
 
 ### Cloud model comparison
 |Public cloud|Private cloud|Hybrid cloud|
-|----------|---------|------|
-|- No capital expenditures to scale up.<br>- Applications can be quickly provisioned and deprovisioned.<br>- Organizations pay only for what they use.|- Hardware must be purchased for start-up and maintenance.<br>-Organizations have complete control over resources and security.<br>-Organizations are responsible for hardware maintenance and updates.|-Provides the most flexibility.<br>-Organizations determine where to run their applications.<br>-Organizations control security, compliance, or legal requirements.
+
 
 ## What are some cloud computing advantages?
 - High availability: Depending on the service-level-agreement(SLA),cloud-based apps can provide a continuou experience with no apparent downtime.
@@ -229,7 +228,7 @@ Some of the most prominent services are:
 
 ### Azure virtual machines
 
-Virtual machines are software emulations of physical computers. They include a virtual processor, memory, storage, and networking resources. VMs host an operating system, and you can install and run software just like a physical computer. When using a remote desktop client, you can use and control the VM as if you were sitting in front of it.
+Virtual machines are software emulations of physical computers. They include a virtual processor, memory, storage and networking resources. VMs host an operating system, and you can install and run software just like a physical computer. When using a remote desktop client, you can use and control the VM as if you were sitting in front of it.
 
 VMs are an ideal choice when you need:
 - Total control over the operating system (OS).
@@ -244,7 +243,7 @@ They are an Azure compute resource that you can use to deploy and manage a set o
 For this reason, it's easier to build large-scale services targeting big compute, big data, and containerized workloads. As demand goes up, more VM instances can be added. As demand goes down, VM instances can be removed. The process can be manual, automated, or a combination of both.
 
 ### Azure Batch
-Enables large-scale parallel and high-performance computing(HPC) batch jobs with the ability to scale to tens, hundreds, or thousands of VMs.
+Enables large-scale parallel and high-performance computing(HPC) batch jobs with the ability to scale to tens, hundreds or thousands of VMs.
 
 When you're ready to run a job, Batch does the following:
 
@@ -274,12 +273,12 @@ Azure Container Instances offers the fastest and simplest way to run a container
 
 #### Azure Kubernetes Service
 
-The task of automating, managing, and interacting with a large number of containers is known as orchestration. Azure Kubernetes Service is a complete orchestration service for containers with distributed architectures and large volumes of containers.
+The task of automating, managing, and interacting with numerous containers is known as orchestration. Azure Kubernetes Service is a complete orchestration service for containers with distributed architectures and large volumes of containers.
 
 
 
 ### App Service
-It allows you to quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform. You can meet rigorous performance, scalability, security, and compliance requirements while using a fully managed platform to perform infraestructure maintenance. App Service is a platfor as a service offering
+It allows you to quickly build, deploy, and scale enterprise-grade web, mobile and API apps running on any platform. You can meet rigorous performance, scalability, security and compliance requirements while using a fully managed platform to perform infraestructure maintenance. App Service is a platfor as a service offering
 
 App Service enables you to build and host web apps, background jobs, mobile back-ends, and RESTful APIs in the programming language of your choice without managing infrastructure.  offers automatic scaling and high availability. App Service supports Windows and Linux and enables automated deployments from GitHub, Azure DevOps, or any Git repo to support a continuous deployment model.
 
@@ -298,15 +297,15 @@ Functions are a key component of serverless computing. They're also a general co
 
 Logic apps are similar to functions. Both enable you to trigger logic based on an event. Where functions execute code, logic apps execute workflows that are designed to automate business scenarios and are built from predefined logic blocks.
 
-Every Azure logic app workflow starts with a trigger, which fires when a specific event happens or when newly available data meets specific criteria. Many triggers include basic scheduling capabilities, so developers can specify how regularly their workloads will run. Each time the trigger fires, the Logic Apps engine creates a logic app instance that runs the actions in the workflow. These actions can also include data conversions and flow controls, such as conditional statements, switch statements, loops, and branching.
+Every Azure logic app workflow starts with a trigger, which fires when a specific event happens or when newly available data meets specific criteria. Many triggers include basic scheduling capabilities, so developers can specify how regularly their workloads will run. Each time the trigger fires, the Logic Apps engine creates a logic app instance that runs the actions in the workflow. These actions can also include data conversions and flow controls, such as conditional statements, switch statements, loops and branching.
 
 You create logic app workflows by using a visual designer on the Azure portal or in Visual Studio. The workflows are persisted as a JSON file with a known workflow schema.
 
 ## Azure Virtual Desktop
 
-Azure Virtual Desktop is a desktop and application virtualization service that runs on the cloud. It enables your users to use a cloud-hosted version of Windows from any location. Azure Virtual Desktop works across devices like Windows, Mac, iOS, Android, and Linux. It works with apps that you can use to access remote desktops and apps. You can also use most modern browsers to access Azure Virtual Desktop-hosted experiences.
+Azure Virtual Desktop is a desktop and application virtualization service that runs on the cloud. It enables your users to use a cloud-hosted version of Windows from any location. Azure Virtual Desktop works across devices like Windows, Mac, iOS, Android and Linux. It works with apps that you can use to access remote desktops and apps. You can also use most modern browsers to access Azure Virtual Desktop-hosted experiences.
 
-Users have the freedom to connect to Azure Virtual Desktop with any device over the internet. They use a Azure Virtual Desktop client to connect to their published Windows desktop and applications. This client could either be a native application on the device or the Azure Virtual Desktop HTML5 web client.
+Users have the freedom to connect to Azure Virtual Desktop with any device over the internet. They use a Azure Virtual Desktop client to connect to their published Windows desktop and applications. This client could either be a native application on the device, or the Azure Virtual Desktop HTML5 web client.
 
 You can make sure your session host virtual machines (VMs) run near apps and services that connect to your datacenter or the cloud. This way your users stay productive and don't encounter long load times.
 
@@ -369,7 +368,7 @@ By default, Azure routes traffic between subnets on any connected virtual networ
 ### Filter network traffic
 Azure virtual networks enable you to filter traffic between subnets by using the following approaches:
 
-- **Network security groups** A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
+- **Network security groups** A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port and protocol.
 
 - **Network virtual appliances** A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
 
@@ -408,7 +407,7 @@ Key features of policy-based VPN gateways in Azure include:
 - Policy-based VPNs must be used in specific scenarios that require them, such as for compatibility with legacy on-premises VPN devices.
 
 #### Route-based VPNs
-If defining which IP addresses are behind each tunnel is too cumbersome, route-based gateways can be used. With route-based gateways, IPSec tunnels are modeled as a network interface or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
+If defining, which IP addresses are behind each tunnel is too cumbersome, route-based gateways can be used. With route-based gateways, IPSec tunnels are modeled as a network interface or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides, which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
 
 Use a route-based VPN gateway if you need any of the following types of connectivity:
 
@@ -435,7 +434,7 @@ You'll need these Azure resources before you can deploy an operational VPN gatew
 
 - Public IP address. Create a Basic-SKU dynamic public IP address if you're using a non-zone-aware gateway. This address provides a public-routable IP address as the target for your on-premises VPN device. This IP address is dynamic, but it won't change unless you delete and re-create the VPN gateway.
 
-- Local network gateway. Create a local network gateway to define the on-premises network's configuration, such as where the VPN gateway will connect and what it will connect to. This configuration includes the on-premises VPN device's public IPv4 address and the on-premises routable networks. This information is used by the VPN gateway to route packets that are destined for on-premises networks through the IPSec tunnel.
+- Local network gateway. Create a local network gateway to define the on-premises network's configuration, such as where the VPN gateway will connect and what it will connect to. This configuration includes the on-premises VPN device's public IPv4 address, and the on-premises routable networks. This information is used by the VPN gateway to route packets that are destined for on-premises networks through the IPSec tunnel.
 
 - Virtual network gateway. Create the virtual network gateway to route traffic between the virtual network and the on-premises datacenter or other virtual networks. The virtual network gateway can be either a VPN or ExpressRoute gateway, but this unit only deals with VPN virtual network gateways. (You'll learn more about ExpressRoute in a separate unit later in this module.)
 
@@ -629,4 +628,35 @@ Azure Bot Service and Bot Framework are platforms for creating visual agents tha
 
 Bots can be used to shift simple, repetitive tasks, such as taking a dinner reservation or gathering profile information, on to automated systems that might no longer require direct human intervention. Users converse with a bot by using text, interactive cards, and speech. A bot interaction can be a quick question and answer, or it can be a sophisticated conversation that intelligently provides access to services.
 
+---
 
+# Choose the best Azure serverless technology for your business scenario
+
+Serverless computing is a term used to describe an execution evironment that's set up and managed for you. You merely specify what you want to happen by writing code or connecting and configuring components in a visual editor, and then specify the actions that trigger your functionality, such as a timer or an HTTP request. Best of all, you never have to worry about on outage, your code can scale instantly to meet demand, and you pay based only on the actual usage of your code.
+
+## Identify the product options
+
+Serverless computing is a cloud-hosted execution evnviroment that runs your code but abstracts the underlying hosting environment. The key idea is that you're not responsible for setting up or maintaining the server. You don't have to worry about scaling it when there's increased demand, and you don't have to worry about outages. The cloud vendor takes care of all maintenonce and scaling concerns for you.
+
+You create an instance of the service, and you then add your code. No infrastructure configuration or maintenance is required, or even allowed. You configure your serverless apps to respond to events. An event could be a REST endpoint, a periodic timer, or even a message received from another Azure service. The serverless app runs only when it's triggered by an event. Scaling and performance are handled automatically, and you're billed only for the resources you use. You don't even need to reserve resources.
+
+### Azure Functions
+With this service, you can host a single method or function by using a popular programming language in the cloud that runs in response to an event.An example of an event might be an HTTP request, a new message on a queue, or a message on a timer.
+
+An Azure function is a stateless enviroment, A function behaves as if it's restarted every time it responds to an event. This feature is ideal for processing incoming data. And if state is required, the function can be connected to an Azure storage account.
+
+Azure Fnctions con perform orchestration tasks by using an extension called Durable Functions, which allow developers to chain functions together while maintaining state.
+
+The Azure Functions solution is ideal when you're concerned only with the code that's running your service and not the underlying platform or infrastructure.
+
+- Better for execute custom algorithms or perform specialized data parsing and data lookups
+- Better if you have existing automated tasks written in an imperative programming language
+
+
+### Azure Logic Apps
+Is a low-code/no-code development platform hosted as a cloud service. The service helps you automate and orchestrate tasks, business processes, and workflows when you need to integrate apps, data, systems and services across enterprises or organizations. Logic Apps simplifies how you design and build scalable solutions, whether in the cloud, on-premises or both. THis solution covers app integratin, data integration, system integration, enterpriso application integration (EAI) and business-to-business (B2B) integration.
+
+Azure Logic Apps is designod in a web-based designer and can execute logic that's triggered by Azure services without writing any code. You build an app by linking triggers to actions with connectors, A trigger is an event (such as a timer) that causes on app to execute, thon an new message to be sent to a queue, ar an HTTP request. An action is a task or step that can execute. There are logic actions such as those you would find in most programming languages. Examplos of actions include working with variables , decisions statements and loops, and tasks that parse and modify data.
+
+- Better for orchestation across well-known APIs
+- Better if you prefer a visual (declarative) workflow or writing (imperative) `` 
