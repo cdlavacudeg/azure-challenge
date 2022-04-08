@@ -659,4 +659,40 @@ Is a low-code/no-code development platform hosted as a cloud service. The servic
 Azure Logic Apps is designod in a web-based designer and can execute logic that's triggered by Azure services without writing any code. You build an app by linking triggers to actions with connectors, A trigger is an event (such as a timer) that causes on app to execute, thon an new message to be sent to a queue, ar an HTTP request. An action is a task or step that can execute. There are logic actions such as those you would find in most programming languages. Examplos of actions include working with variables , decisions statements and loops, and tasks that parse and modify data.
 
 - Better for orchestation across well-known APIs
-- Better if you prefer a visual (declarative) workflow or writing (imperative) `` 
+- Better if you prefer a visual (declarative) workflow or writing (imperative)  
+
+--- 
+# Choose the best tools to help organizations build better solutions
+Modern software development practices are supported by tools that encompass virtualy every aspect of the software development life cycle. Microsoft has created a comprehensive set of tools that help organizations implement DevOps practices, develop solutions, and save money doing so.
+
+## Prouct options
+
+Devops is a concept that combines philosophies and practices to facilitate technical teams as they work toward common goals. To accomplish this alignment, organizations employ practices and processes that automated the ongoing development, maintenance, and deployment of software systems. The aim is to expedite the release of software chonges, ensure the ongoing deployability af the system, and ensure that all changes meet a high quality bar.
+
+When done correctly, DevOps practices and processes touch nearly every aspect of a company and the software development lifecycle, including planning, project management, and the collaboration of software developers and operations and quality assurance teams. Tooling automates and enforces most of the practices and processes, making it both difficult and unnecessary to work around.
+
+### Azure DevOps Services
+
+Is a suite of services that address every stage of the software development lifecycle.
+
+- **Azure Repos** is a centralized source-code repository.
+- **Azure Boards** is an agile project management suite that includes Kanban boards, reporting, and tracking ideas and work from high-level epics to work items and issues.
+- **Azure Pipelines** is a CI/CD (continuous integration / continuous deployment) automation tool.
+- **Azure Artifacts** is a repository for hosting artifacts, such as compiled source code, which can be fed into testing or deployment pipelines steps.
+- **Azure Test Plans** is an automated test tool that can be used in a CI/CD pipeline to ensure quality before a software release.
+
+### GitHub and GitHub actions
+
+Most relevant for this module, GitHub Actions enables workflow automation with triggers for many lifecycle events. One such example would be automating a CI/CD *toolchain*.
+
+A *toolchain* is a combination of software tools that aid in the delivery, development, and management of software applications throughout a system's development lifecycle. The output of one tool in the toolchain is the input of the next tool in the toolchain. Typical tool functions range from performing automated dependency updates to building and configuring the software, delivering the build artifacts to various locations, testing, and so on.
+
+With such similarity between many GitHub and Azure DevOps features, you might wonder which product to choose for your organization. Unfortunately, the answer might not be straightforward.
+
+Although both Azure DevOps and GitHub allow public and private code repositories, GitHub has a long history with public repositories and is trusted by tens of thousands of open-source project owners. GitHub is a lighter-weight tool than Azure DevOps, with a focus on individual developers contributing to the open-source code. Azure DevOps, on the other hand, is more focused on enterprise development, with heavier project-management and planning tools, and finer-grained access control.
+
+### Azure DevTest Labs 
+
+Provides an automated means of managing the process of building, setting up, and tearing down virtual machines (VMs) that contain builds of your software projects. This way, developers and testers can perform tests across a variety of environments and builds. And this capability isn't limited to VMs. Anything you can deploy in Azure via an ARM template can be provisioned through DevTest Labs.
+
+
