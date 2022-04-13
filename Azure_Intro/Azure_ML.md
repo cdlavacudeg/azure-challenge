@@ -695,4 +695,57 @@ Although both Azure DevOps and GitHub allow public and private code repositories
 
 Provides an automated means of managing the process of building, setting up, and tearing down virtual machines (VMs) that contain builds of your software projects. This way, developers and testers can perform tests across a variety of environments and builds. And this capability isn't limited to VMs. Anything you can deploy in Azure via an ARM template can be provisioned through DevTest Labs.
 
+---
+# [Choose the best tools for managing and configuring your Azure environment](https://docs.microsoft.com/en-us/learn/modules/management-fundamentals/1-introduction)
+
+By using Azure management tools, administrators, developers and managers can interac with the cloud environment to perform such a tasks as:
+
+- Deploying dozens or hundreds of resources at a time.
+- Configuring individual services programmatically.
+- Viewing rich reports across usage, health, costs, and more.
+
+
+## Product options
+
+At a high level, there are two broad categories of management tools: visual tools and code-based tools.
+
+Visual tools provide full, visually friendly access to all the functionality of Azure. However, visual tools might be less useful when you're trying to set up large deployment of resources with interdependence and configuration options.
+
+When you're attempting to quickly set up and configure Azureo resources, a code-based tool is usually the better choice. Although it might take time to understand the right commands and parameters at first,after they've been entered, they can be saved into files and used repeatedly as needed. Also, the code that performs setup and configuration can be stored, versioned, and maintained along with application source code in a source code-management tool such as Git. 
+
+There are two approaches to infrastructure as code: imperative code and declarative code. Imperative code details each individual step that should be performed to achive a desired outcome. By contrast, declarative code details anly a desired outcome, and it allows an interpreter to decide how to best achive that outcome. This distinction is important because tools that are based on declarative code con provide a more robust approach to deploying dozens or hundreds of resources simultaneously and reliably.
+
+### The Azure portal 
+
+By using the Azure portal, a web-based user interface, you can access virtually every feature of Azure. The Azure portal provides a friendly, graphical UI to view all the services you're using, create new services, configuro your services, and view reports.
+
+### The Azure mobile app 
+The Azure mobile app provides iOS and Android access to your Azure resources when you're away from your computer. With it, you can:
+
+- Monitor the health and status of your Azure resources.
+- Check for alerts, quickly diagnose and fix issues, and restart a web app or virtual machine (VM).
+- Run the Azure CLI or Azure PowerShell commands to manage your Azure resources.
+
+### Azure PowerShell
+
+Azure PowerShell is a shell with which developers and DevOps and IT professionals can execute commands called cmdlets (pronounced command-lets). These commands call the Azure Rest API to perform every possible management task in Azure. Cmdlets can be executed independently or combined into a script file and executed together to orchestrate:
+
+The routine setup, teardown and maintenance of a single resource or multiple connected resources.
+The deployment of an entire infrastructure, which might contain dozens or hundreds of resources, from imperative code.
+Capturing the commands in a script makes the process repeatable and automatable.
+
+### The Azure CLI
+The Azure CLI command-line interface is an executable program with which a developer, DevOps professional, or IT professional can execute commands in Bash. The commands call the Azure Rest API to perform every possible management task in Azure. You can run the commands independently or combined into a script and executed together for the routine setup, teardown and maintenance of a single resource or an entire environment.
+
+In many respects, the Azure CLI is almost identical to Azure PowerShell in what you can do with it. Both run on Windows, Linux and Mac, and can be accessed in a web browser via Cloud Shell. The primary difference is the syntax you use. If you're already proficient in PowerShell or Bash, you can use the tool you prefer.
+
+### ARM templates
+
+Although it's possible to write imperative code in Azure PowerShell or the Azure CLI to set up and tear down one Azure resource or orchestrate an infrastructure comprising hundreds of resources, there's a better way to implement this functionality.
+
+By using Azure Resource Manager templates (ARM templates), you can describe the resources you want to use in a declarative JSON format. The benefit is that the entire ARM template is verified before any code is executed to ensure that the resources will be created and connected correctly. The template then orchestrates the creation of those resources in parallel. That is, if you need 50 instances of the same resource, all 50 instances are created at the same time.
+
+Ultimately, the developer, DevOps professional, or IT professional needs only to define the desired state and configuration of each resource in the ARM template, and the template does the rest. Templates can even execute PowerShell and Bash scripts before or after the resource has been set up.
+
+
 
