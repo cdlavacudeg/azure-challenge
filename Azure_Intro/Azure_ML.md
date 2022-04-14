@@ -747,5 +747,50 @@ By using Azure Resource Manager templates (ARM templates), you can describe the 
 
 Ultimately, the developer, DevOps professional, or IT professional needs only to define the desired state and configuration of each resource in the ARM template, and the template does the rest. Templates can even execute PowerShell and Bash scripts before or after the resource has been set up.
 
+---
+
+# [Choose the best monitoring service for visibility, insight and outgate mitigation](https://docs.microsoft.com/en-us/learn/modules/monitoring-fundamentals/1-introduction)
+
+Modern software systems running in the cloud are complex, and gaining visibility into the health and performance of your application-hosting environment across all of its layers of services is challenging. Fortunately, there arer several solutions from Microsoft that can help you react quickly to outages, research intermittent issues, optimize your usage, and be proactive in handling future planned downtime.
+
+## Product options
+
+By using a combination of monitoring solutions on Azure, you can:
+
+- Gain answers, insights and alerts to help ensure that you've optimized your cloud usage.
+
+- Ascertain the root cause of unplanned issues.
+
+- Prepare ahead of time for planned outages.
+
+### Azure Advisor
+Evaluates your Azure resources and makes recommendations to help improve reliability, security and performance, achieve operational excellence and reduce costs. Advisor is designed to help you save tieme on cloud optimization.
+
+When you're in th Azure portal, the Advisor dashboard displays personalized recommendations for all your subscriptions, and you can use filters to select recommendations for specific subscription, and you can use filters to select recommendotions for sepecific subscriptions, resuorce groups, or services. The recommendations are divided into five categories:
+
+- **Reliability:** Used to ensure and improve the continuity of your business-critical applications.
+- **Security:** Used to detect threats and vulnerabilities that might lead to security breaches.
+- **Performance:** Used to improve the speed of your applications.
+- **Cost:** Used to optimize ond reduce your overall Azure spending.
+- **Operational Excellence:** Used to help you achieve process and workflow efficiency, resource manageability, and deployment best practices.
+
+### Azure Monitor
+Is a platform for collecting, analyzing, visualizing, and potentially taking action based on the metric and logging data from your entire Azure and on-premises environment.
+
+Additionally, you can use the data to help you react to critical events in real time, through alerts delivered to teams via SMS, email and so on. Or you can use thresholds to trigger autoscaling functionality to scale up or down to meet the demand.
+
+Some popular products such as Azure Application Insights, a service for sending telemetry information from application source code to Azure, uses Azure Monitor under the hood.
+
+### Azure Service health
+
+Provides o personalized view of the health of the Azure services, regions and resources you rely on. The status.azure.com website, which displays only major issues that broadly affect Azure customers, doesn't provide the full picture. But Azure Service Health displays both major and smaller, localized issues that affect you. Service issues are rare, but it's important to be prepared for the unexpected. 
+
+Service Health helps you keep an eye on several events types:
+
+- **Service issues** such as outages, that affect you right now. You can drill down to the affected services, regions, updates from your engineering teams.
+
+- **Planned maintenance** events can affect your availability. You can drill down to the affected services, regions, and details to show how an event will affect you and what you need to do.
+
+- **Health advisores** are issues that require you to act to avoid service interruption, including service retirements and breaking changes. Health advisories are announced far in advance to allow you to plan.
 
 
