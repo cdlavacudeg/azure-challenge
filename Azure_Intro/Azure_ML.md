@@ -793,4 +793,62 @@ Service Health helps you keep an eye on several events types:
 
 - **Health advisores** are issues that require you to act to avoid service interruption, including service retirements and breaking changes. Health advisories are announced far in advance to allow you to plan.
 
+--- 
+
+# [Protect against security threats on Azure](https://docs.microsoft.com/en-us/learn/modules/protect-against-security-threats-azure/2-protect-threats-security-center)
+
+There are some security tools that can help keep your infrastructure and data safe when you work in the cloud.
+
+## Azure Security Center
+
+Is a monitoring service that provides visibilty of your security posture across all of your services, both on Azure and on-premises. The term *security posture* refers to cybersecurity polices and controls, as well as how well you can predict, preven and respond to security threats.
+
+Security Center can:
+
+- Monitor security settings across on-premises an cloud workloads.
+- Automatically apply required security settings to new resources
+- Provide security recommendations that are based on your current configurations, resources and networks.
+- Continuously monitor your resources and perform automatic security assessments.
+- Use machine learning to detect and block malware from being installed on your virtual machines and other resources.
+- Detect and analyze potential inbound attacks and investigate threats and any post-breach activity that might have occurred.
+- Provide just-in-time access control for network ports. Doing so reduces your attack surface by ensuring that the network only allows traffic that you require at the time that you need it to.
+
+## Azure Sentinel 
+
+Security management on a large scale can benefit from a dedicated security information and event management (SIEM) system. A SIEM system aggregates security data from many sources (as long as those sources support an open-standard logging format). It also provides capabilities for threat detection and response.
+
+Azure Sentinel is Microsoft's cloud-based SIEM system. It uses intelligent security analytics and threat analysis.
+
+### Capabilities
+
+- **Collect cloud data at scale** Collect data across all users, devices, applications and infrastructure, both on-premises and from multiple clouds.
+- **Detect previously undetected threats** Minimize false positives by using Microsoft's comprehensive analytics and threat intelligence.
+- **Investigate threats with artificial intelligence** Examine suspicious activities at scale, tapping into years of cybersecurity experience.
+- **Respond to incidents rapidly** Use built-in orchestation and automation of common tasks.
+
+### Detect threats
+- **Built in analytics** use templates based on known threats, common attack vectors, and escalation chains for suspicious activity.
+
+- **Custom analytics** are rules that you create to search for specific criteria within your environments
+
+## Store and manage secrets by using Azure key vault
+
+It is a centralized cloud service for storing an application's secrets in a single, central location. It provides secure access to sensitive information by providing access control and logging capabilities.
+
+Azure key vault can help you:
+
+- **Manage secrets** securely store and tightly control access to tokens, passwords, certificates, API Keys, and other secrets.
+- **Manage encryption keys** 
+- **Manage SSL/TLS certificates** enables you to provision, manage and deploy your public and private Secure Sockets Layer / Transport Layer Security certificates for both your Azure resources and your internal resources.
+- **Store secrets backed by hardware security modules(HSMs)**
+
+### Benefits
+
+- **Centralized application secrets** 
+- **Securely stored secrets and keys**
+- **Access monitoring and access control**
+- **Simplified administration af application secrets**
+- **Integration with other Azure services**
+
+https://my-keyvault-tex.vault.azure.net/
 
