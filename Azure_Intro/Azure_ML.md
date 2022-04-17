@@ -850,5 +850,142 @@ Azure key vault can help you:
 - **Simplified administration af application secrets**
 - **Integration with other Azure services**
 
-https://my-keyvault-tex.vault.azure.net/
+---
+# [Secure network connectivity on Azure](https://docs.microsoft.com/en-us/learn/modules/secure-network-connectivity-azure/1-introduction)
+
+Every application and service, whether on-premises or in the cloud, needs to be designed with security in mind.
+
+## What is defense in depth
+
+The objective of defense in depth is to protect information and prevent it from being stolen by those who aren't authorized to access it.
+
+A defense-in-depth strategy uses a series of mechanisms to slow the advance of an attack that aims at acquiring unauthorized access to data.
+
+### Layers of defense in depth
+You can visualize defense in depth as a set of layers, with the data to be secured at the center.
+
+Each layer provides protection so that if one layer is breached, a subsequent layer is already in place to prevent further exposure. This approach removes reliance on any single layer of protection. It slows down an attack and provides alert telemetry that security teams can act upon, either automatically or manually.
+
+Here's a brief overview of the role of each layer:
+
+- The **physical security** layer is the first line of defense to protect computing hardware in the datacenter.
+
+- The **identity and access** layer controls access to infrastructure and change control. At this layer, it's important to:
+  - Control access to infrastructure and change control.
+  - Use single-on (SSO) and multifactor authentication.
+  - Audit events and changes.
+
+- The **perimeter** layer uses distributed denial of service (DDoS) protection to filter large-scale attacks before they can cause a denial of service for users.At this layer, it's important to:
+  - Use DDoS protection to filter large-scale attacks before they can affect the availability of a system for users.
+  - Use perimeter firewalls to identify and alert on malicious attacks against your network.
+  
+
+- The **network** layer limits communication between resources through segmentation and access controls. At this layer, it's important to: 
+  - Limit communication between resoruces.
+  - Deny by default.
+  - Restrict inbound internet access and limit outbound access where appropiate.
+  - Implement secure connectivity to on-premises networks.
+
+
+- The **compute** layer secures access to virtual machines. At this layer, it's important to:
+  - Secure access to virtual machines.
+  - Implement endpoint protection on devices and keep systems patched and current.
+
+
+- The **application** layer helps ensure that applications are secure and free of security vulnerabilities. At this layer, it's important to:
+  - Ensure that applications are secure and free of vulnerabilities.
+  - Store sensitive application secrets in a secure storage medium.
+  - Make security a design requirement for all application development.
+
+- The **data** layer controls access to business and customer data that you need to protect.In almost all cases, attackers are after data:
+  - Stored in a database.
+  - Stored on disk inside virtual machines.
+  - Stored in software as a service (SaaS) applications.
+  - Managed through cloud storage.
+
+
+These layers provide a guideline for you to help make security configuration decisions in all of the layers of your applications.
+
+Azure provides security tools and features at every level of the defense-in-depth concept.
+
+### Security posture
+
+Your *security posture* is your organization's ability to protect from and respond to security threats. The common principles used to define a security posture are confidentiality, integrity, and availability, known collectively as CIA.
+
+- **Confidentiality**:
+  The principle of least privilege means restricting access to information only to individuals explicitly granted access, at only the level that they need to perform their work. This information includes protection of user passwords, email content, and access levels to applications and underlying infrastructure.
+
+- **Integrity**
+  Prevent unauthorized changes to information:
+
+  - At rest: when it's stored.
+  - In transit: when it's being transferred from one place to another, including from a local computer to the cloud.
+  A common approach used in data transmission is for the sender to create a unique fingerprint of the data by using a one-way hashing algorithm. The hash is sent to the receiver along with the data. The receiver recalculates the data's hash and compares it to the original to ensure that the data wasn't lost or modified in transit.
+
+- **Availability**
+
+  Ensure that services are functioning and can be accessed only by authorized users. Denial-of-service attacks are designed to degrade the availability of a system, affecting its users.
+
+
+## Protect virtual networks by using Azure firewall
+
+A *firewall* is a network security device that monitors incoming and outgoing network traffic and decides whether to allow or block specific traffic based on a defined set of security rules.
+
+### Azure Firewall
+
+Is a managed, cloud-based network security service that helps protect resources in your Azure virtual networks.
+
+Azure Firewall is a *stateful firewall*. A stateful firewall analyzes the complete context of a network connection, not just an individual packet of network traffic. Azure Firewall features high availability and unrestricted cloud scalability.
+
+Azure Firewall provides a central location to create, enforce and log application and network connectivity polices across subscriptions and virtual networks.
+
+It Provides many features, including:
+- Built-in high availability.
+- Unrestricted cloud scalability.
+- Inbound and outbound filtering rules.
+- Inbound Destination Network Address Translation (DNAT) support.
+- Azure Monitor logging
+
+### What can I configure with Azure Firewall?
+
+- Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
+- Network rules that define source address, protocol, destination port, and destination address.
+- Network Address Translation (NAT) rules that define destination IP addresses and ports to translate inbound requests.
+
+Azure Application Gateway also provides a firewall that's called the web application firewall (WAF). WAF provides centralized, inbound protection for your web applications against common exploits and vulnerabilities. Azure Front Door and Azure Content Delivery Network also provide WAF services.
+
+
+## Protect from DDoS attacks by using Azure DDoS Protection
+
+Any large company can be the target of a large-scale network attack. Attackers might flood your network to make a statement or simply for the challenge. Azure can help prevent distributed denial of service (DDoS) and other attacks.
+
+In this part, you learn how Azure DDoS Protection (Standard service tier) helps protect your Azure resources from DDoS attacks. First, let's define what a DDoS attack is.
+
+### What are DDoS attacks?
+A *distributed denial af service* attack attemps to overwhelm and exhaust an application's resources, making the application slow or unresponsive to legitimate users. DDoS attacks can target any resource that's publicly reachable through the internet, including websites.
+
+**DDoS Protection** identifiel the attacker's attempt to overhelm the network and blocks further traffic from them, ensuring that traffic never reaches Azure resources. Legitimate traffic from customers still flows into Azure without any interruption of service.
+
+DDoS Protection can also help you manage your cloud consumption. It helps ensure that the network load you process reflects customer usage. You can alse recive credit for any costs accrued for scaled-out resources during a DDoS attack.
+
+### Service tiers in DDoS Protection
+- **Basic**
+  - Automatically enabled for free
+  - On traffic monitoring
+  - Real-time mitigation 
+
+- **Standard**
+  - Additional mitigation capabilities
+  - Protection policies are turned through dedicated traffic monitoring and machine learning algorithms.
+
+### Kind of attacks that DDoS help prevent
+
+- **Volumetric attacks**
+- **Protocol attacks**
+- **Resource-layer**
+
+## Filter network traffic by using network security groups
+
+A network security group enables you to filter network traffic to and from Azure resources within an Azure virtual
+network. You can think of NSGs like an internal firewall. An NSG can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port an protocol.
 
