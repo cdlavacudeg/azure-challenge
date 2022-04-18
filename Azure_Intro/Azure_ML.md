@@ -989,3 +989,71 @@ DDoS Protection can also help you manage your cloud consumption. It helps ensure
 A network security group enables you to filter network traffic to and from Azure resources within an Azure virtual
 network. You can think of NSGs like an internal firewall. An NSG can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port an protocol.
 
+--- 
+# [Secure access to your applications by using Azure identify services](https://docs.microsoft.com/en-us/learn/modules/secure-access-azure-identity-services/?WT.mc_id=cloudskillschallenge_495571f3-ba53-426a-b5cc-2885cf229e8b)
+
+
+Traditionally, protecting access to systems and data involved the on-premises network perimeter and physical acces controls.
+
+With people increasingly able to work from anywhere, plus the rise of bring your own device (BYOD) strategies, mobile applications, and cloud applications, many af those access points are now outside the company's physical networks.
+
+*Identity* has become the new primary security boundary. Accurately proving that someone is a valid user of your system, with an appropiate level of access, is critical to maintaining control of your data. This identity layer is now more often the target of attack than the network is.
+
+## Compare authentication and authorization
+
+Two fundamental concepts that you need to understand when talking about identity and access are *authentication* (AuthN) and *authorization* (AuthZ).
+
+### What is authentication?
+
+It is the process of establishing the identity of a person or service that wants to access a resource. It involves the act of challenging a party for legitimate credentials and provides the basis for creating a security principal for identity and access control. It establishes whether the user is who the say they are.
+
+
+### What is authorization?
+
+It establishes the user's identity, but authorization is the process of establishing what level of access an authenticated person or service has. It specifies what data they're allowed to access and what they can do with it.
+
+## What is Azure Active Directory?
+In this part, you learn how Azure Active Directory (Azure AD) provides identity services that enable your users to sign in and access both Microsoft cloud applications and cloud applications that you develop. 
+
+### Who uses Azure AD?
+
+- **IT administrators** to control access to applications and resources based on their business requirements.
+
+- **App developers** to provide a standards-based approach for adding functionality to applications that they build, such as adding SSO functionality to an app or enabling an app to work with a user's existing credentials.
+
+- **Users** to manage their identities.Ex, self-service password reset...
+
+- **Online service subscribers**
+
+
+### What services does Azure AD provide?
+- **Authentication** This includes verifying identity to access applications and resources. It also includes providing functionality such as self-service password reset, multifactor authentication, a custom list of banned passwords, and smart lockout services.
+
+- **Single sign-on** Enables you to remember only one username and one password to access multiple applications. A single identity is tied to a user, which simplifies the security model. As users change roles or leave on organization, access modifications are tied to that identity, which greatly reduces the effort needed to change or disable accounts.
+
+- **Application management** You can manage your cloud and on-premises apps by using Azure AD. Features like Application Proxy, SaaS apps, My Apps portal, and single sign-on provide a better user experience.
+
+- **Device management** Along wiht accounts for individuals people, Azure AD supports the registration fo devices. Registration enables devices to be managed through tools like Microsoft Intune. It also allows for device-based Conditional Access policies to restrict access attempts to only those comming from known devices, regardless of the requesting user account.
+
+## What are multifactor authentication and Conditional Access?
+
+### Multifactor authentication
+Is a process where a user is prompted during the sign-in process for an additional form of identification. Examples include a code on their mobile phone, or a fingerprint scan.
+
+Multifactor authentication increases identity security by limiting the impact of credential exposure (for example, stolen usernames and passwords). With multifactor authentication enabled, an attacker who has a user's password would also need to have possesion of their phone or their fingerprint to fully authenticate.
+
+### Azure AD Multi-Factor Authentication
+
+These servivces provide Azure AD Multi-Factor Authentication capabilies:
+
+- **Azure Active Directory** 
+
+- **Multifactor authentication for Office 365**
+
+### Conditional Access
+Is a tool that Azure Acitive Directory uses to allow (or deny) access to resources based on identity signals. These signals include who the user is, where the user is, and what device the user is requesting access from.
+
+Conditional Access also provides a more granular multifactor authentication experience for users. For example, a user might not be challenged for second authentication factor if they're at at known location. However, they might be challenged for a second authentication factor if their sign-in signals are unusual or they're at an unexpected location.
+
+During sign-in, Conditional Access collects signals from the user, makes decisions based on those signals, and then enforces that decision by allowing or denying the access request or challenging for a multifactor authentication response.
+
