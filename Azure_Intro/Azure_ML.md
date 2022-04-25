@@ -1057,3 +1057,199 @@ Conditional Access also provides a more granular multifactor authentication expe
 
 During sign-in, Conditional Access collects signals from the user, makes decisions based on those signals, and then enforces that decision by allowing or denying the access request or challenging for a multifactor authentication response.
 
+---
+# [Build a cloud governance strategy on Azure](https://docs.microsoft.com/en-us/learn/modules/build-cloud-governance-strategy-azure/)
+
+The term *governance*  describes the general process of establishing rules and policies and ensuring that those rules and policies are enferced.
+
+When running in the cloud, a good governance strategy helps you maintain control over the applications and resources that you manage in the cloud. Maintaining control over your environment ensures that you stay compliant with:
+
+- Industy standards, like [PCI DSS](https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-pci-dss)
+- Corporate or organizational standards, such as ensuring that network data is encryted.
+
+Goverannce is most beneficial when you have:
+- Multiple engineering teams working in Azure.
+- Multiple subscriptions to manage.
+- Regulatory requirements that must be enforced.
+- Standards that must be followed for all cloud resources.
+
+## Control access to cloud resources by using Azure role-based access control
+
+When you have multiple IT and engineering teams, haw can you control what access they have to the resources in your cloud environment? It's a good security practice to grant users only the rights they need to perform their job, and only to the revelant resources.
+
+Instead of defining the detailed access requirements for each individual, and then updating access requirements when new resources are created, Azure enables you to control access through Azure role-based access control (Azure RBAC).
+
+Azure provides built-in roles that describe common access rules for cloud resources. You can also define your own roles. Each role has an associated set of access permissions that are relate to that role. When you assign individuals or groups to one or more roles, they receive all of the associoted access permissions.
+
+### How is role-based access control applied to resources?
+It is applied to a scope, which is a resource or set of resources that this acces applies to.Scopes include:
+- A management group (a collection of multiple subscriptions).
+- A single subscription.
+- A resource group.
+- A single resource.
+
+*Obeservers, Users managing resources, Admins, and Automated processes* illustrate the kinds of users or accounts that would typically be assigned each of the various roles.
+
+When you grant access at a parent scope, those permissions are inherited by all child scopes.
+
+### When should I use Azure RBAC?
+- Allow one user to manage VMs in a subscription and another user to manage virtual networks.
+- Allow a database administrator group to manage SQL databases in a subscription.
+- Allow a user to manage all resources in a resource group, such as virtual machines, websites and subnets.
+- Allow an aplication to access all resources in a resource group.
+
+## Prevent accidental changes by using resource locks
+
+Even with Azure RBAC polices in place, there's still a risk that people with the right level of access could delete critical resources. Think of a resource lock as a warning system that reminds you that a resource should not be deleted or changed.
+
+### What levels of locking are available?
+You can apply locks to a subscription, as resource group, or an individual resource. You can set the lock level to **CanNotDelete** or **ReadOnly**.
+- **CanNotDelete** means authorzed people can still read and modify a resource, but they can't delete the resource without first removing the lock.
+- **ReadOnly** means authorized people con read a resource, but they can't delete or change the resource. Applying this lock is like restricting all authorized users to the permissions granted by the **Reader** role in Azure RBAC.
+
+### Combine resource locks with Azure Blueprints
+What if a cloud administrator accidentally deletes a resource lock? If the resource lock is removed, its associated resources can be changed or deleted.
+
+To make the protection process more robust, you can combine resource locks with Azure Blueprints. Azure Blueprints enables you to define the set of standard Azure resources that your organization requires. For example, you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
+
+# Organize your Azure resources by using tags
+
+Tags provide extra information, or metadata, about your resources. This metadata is useful for:
+
+- **Resource management** Tags enable you to locate and act on resources that are associated with specific workloads, environments, business units, and owners.
+
+- **Cost management and optimization** Tags enable you to group resources so that you can report on costs, allocate internal cost centers, track budgets, and forecast estimated cost.
+
+- **Operations management** Tags enable you to group resources according to how critical their availability is to your business. This grouping helps you formulate service-level agreements (SLAs). An SLA is an uptime or performance guarantee between you and your users.
+
+- **Security** Tags enable you to classify data by its security level, such as public or confidential.
+
+- **Governance and regulatory compliance** Tags enable you to identify resources that align with governance or regulatory compliance requirements, such as ISO 27001. Tags can also be part of your standards enforcement efforts. For example, you might require that all resources be tagged with an owner or department name.
+
+- **Workload optimization and automation** Tags can help you visualize all of the resources that participate in complex deployments. For example, you might tag a resource with its associated workload or application name and use software such as Azure DevOps to perform automated tasks on those resources.
+
+### How do I manage resource tags?
+You can add, modify, or delete tags through PowerShell, the Azure CLI, Azure Resource Manager templates, The REST API, or the Azure portal.
+
+# Control and audit your resources by using Azure Policy 
+
+Is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources. These policies enforce different rules across all of your resource configurations so that those configurations stay compliant with corporate standards.
+
+## How does Azure Policy define policies?
+
+Azure Policy enables you to define both individual and *groups* policies, known as *initiatives*. Azure Policy evaluates your resources and highlights resources that aren't compliant with the policies you've created. Azure Policy can also prevet noncompliant resources from being created.
+
+Azure Policy comes with built-in policy and initiative definitions for Storage, Networking, Compute, Security Center, and Monitoring. For example, if you define a policy that allows only a certain SKU (stock-keeping unit) size for the virtual machines (VMs) to be used in your environment, that policy is invoked when you create a new VM and whenever you resize existing VMs. Azure Policy also evaluates and monitors all current VMs in your environment.
+
+In some cases, Azure Policy can automatically remediate noncompliant resources and configurations to ensure the integrity of the state of the resources. For example, if all resources in a certain resource group should be tagged with AppName tag and a value of "SpecialOrders," Azure Policy will automatically reapply that tag if it was missing.
+
+Azure Policy also integrates with Azure DevOps by applying any continuous integration and delivery pipeline policies that pertain to the pre-deployment and post-deployment phases of your applications.
+
+### Azure Policy in action
+Implementing a policy in Azure Policy involves three tasks:
+
+1. **Create a policy definition** Expresses wath to evaluate and what action to take.
+
+2. **Assign the definition to resources** A *policy assigment* is a policy definition that takes place within a specific scope.
+
+3. **Review the evaluation results** When a condition is evaluated against your existing resources, each resource is marked as compliant or noncompliant.
+
+
+### What are Azure Policy initiatives?
+
+Is a way of grouping relate policies together. The initiative definition contains all af the policy definitions to help track your compliance state for a larger goal.
+
+## Govern multiple subscriptions by using Azure Blueprints
+With Azure Blueprints you can define a repeatable set of governance tools an standard Azure resources that your organization requires. In this way, development teams can rapidly build an deploy new environments with the knowledge that they,re building within organizational compliance with a set of built-in components that speed the development and deployment phases.
+
+Azure Blueprints orchestrates the deployment of various resource templates and other artifacts, such as:
+- Role assigments
+- Policy assigments
+- Azure Resource Manager Templates
+- Resource groups
+
+### Azure Blueprints in action
+
+When you form a cloud center of excellence team or a cloud custodian team, that team can use Azure Blueprints to scale their governance practices throughout the organization.
+
+Implementing a blueprint in Azure Blueprints involves these three steps:
+
+1. Create an Azure blueprint.
+1. Assign the blueprint.
+1. Track the blueprint assignments.
+
+With Azure Blueprints, the relationship between the blueprint definition (what should be deployed) and the blueprint assignment (what was deployed) is preserved. In other words, Azure creates a record that associates a resource with the blueprint that defines it. This connection helps you track and audit your deployments.
+
+Blueprints are also versioned. Versioning enables you to track and comment on changes to your blueprint.
+
+### What are blueprint artifacts?
+
+Each componont in the blueprint definition is known as an *artifact*.
+
+It is possible for artifacts to have no additional parameters (configurations). An example es the **Deploy threat detection on SQL servers** policp, which no additional configuration.
+
+Artifacts can also contain one or more parameters that you can configure.You can specify a parameter's value when you create the blueprint definition or when you assign the blueprint definition to a scope. In this way, you can maintain one standard blueprint but have the flexibility to specify the revelant configuration parameters at each scope where the definition is assigned.
+
+## Cloud Adoption Framework for Azure
+
+The Cloud Adoption Framework for Azure provides you with proved guidance to help with your cloud adoption journey. The Cloud Adoption Framework helps you create and implement the business and technology strategies needed to succeed in the cloud.
+It consists of tools, documentation and proven practices. The Cloud Adoption Framework includes these stages:
+
+### Define your strategie
+Here, you answer why you're moving to the cloud and what you want to get out of cloud migration. Do you need to scale to meet demand or reach new markets? Will it reduce costs or increase business agility? When you define your cloud business strategy, you should understand cloud economics and consider business impact, turnaround time, global reach, performance, and more.
+
+Here are the steps in this stage.
+  1. Define and document your motivations.
+  2. Document business outcomes.
+  3. Evaluate financial considerations.
+  4. Understand technical considerations.
+
+### Make a plan
+Here, you build a plan that maps your aspirational goals to specific actions. A good plan helps ensure that your efforts map to the desired business outcomes.
+
+Here are the steps in this stage.
+
+  1. Digital state
+  2. Initial organizational alignment.
+  3. Skills readiness plan.
+  4. Cloud adoption plan.
+
+### Ready your organization
+Here, you create a *landing zone*, or an environment in the cloud to begin hosting your workloads.
+
+Here are the steps in this stage.
+  1. Azure setup guide.
+  2. Azure landing zone.
+  3. Expand the landing zone.
+  4. Best practices.
+
+### Adopt the cloud
+
+
+### Govern and manage your cloud environments
+
+
+## Create a subscription governance strategy
+
+At the beginning of any cloud governance implementation, you identify a cloud organization structure that meets your business needs. This step often involves forming a cloud center of excellence team (also called a cloud enablement team or a cloud custodian team). This team is empowered to implement governance practices from a centralized location for the entire organization.
+
+Teams often start their Azure governance strategy at the subscription level. There are three main aspects to consider when you create and manage subscriptions: billing, access control, and subscription limits.
+
+Let's look at each of these aspects in more detail.
+
+### Billing
+You can create one billing report per subscription. If you have multiple departments and need to do a "chargeback" of cloud costs, one possible solution is to organize subscriptions by department or by project.
+
+Resource tags can also help. You'll explore tags later in this module. When you define how many subscriptions you need and what to name them, take into account your internal billing requirements.
+
+### Access control
+A subscription is a deployment boundary for Azure resources. Every subscription is associated with an Azure Active Directory tenant. Each tenant provides administrators the ability to set granular access through defined roles by using Azure role-based access control.
+
+When you design your subscription architecture, consider the deployment boundary factor. For example, do you need separate subscriptions for development and for production environments? With separate subscriptions, you can control access to each one separately and isolate their resources from one another.
+
+### Subscription limits
+Subscriptions also have some resource limitations. For example, the maximum number of network Azure ExpressRoute circuits per subscription is 10. Those limits should be considered during your design phase. If you'll need to exceed those limits, you might need to add more subscriptions. If you hit a hard limit maximum, there's no flexibility to increase it.
+
+Management groups are also available to assist with managing subscriptions. A management group manages access, policies, and compliance across multiple Azure subscriptions. You'll learn more about management groups later in this module.
+
+
