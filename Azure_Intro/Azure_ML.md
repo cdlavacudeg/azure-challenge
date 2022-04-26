@@ -1252,4 +1252,76 @@ Subscriptions also have some resource limitations. For example, the maximum numb
 
 Management groups are also available to assist with managing subscriptions. A management group manages access, policies, and compliance across multiple Azure subscriptions. You'll learn more about management groups later in this module.
 
+---
+
+# [Examine privacy, compliance and data protection standards on Azure](https://docs.microsoft.com/en-us/learn/modules/examine-privacy-compliance-data-protection-standards/1-introduction)
+
+In general *compliance* means to adhere to a law, standard or set of guidelines. *Regulatory compliance* refers to the discipline and process of ensuring that a company follows the laws that governing bodies enforce.
+
+## Explore compliance terms and requirements
+
+Microsoft's online services build upon a common set fo regulatory and compliance controls. Think of a *control* as a known good standard that you can compare your solution against to ensure security. These controls address today's regulations and adapt as regulations evolve.
+
+### Which compliance cotegories are available on Azure?
+Although there are many more, the following image shows some of the more popular compliance offerings that are available on Azure. These offerings are grouped under four categories: Global, US Gov, Industry and Regional.
+
+<img src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/examine-privacy-compliance-data-protection-standards/media/2-compliance-matrix-383090ad.png"/>
+
+## Access the Microsoft Privacy Statement, the Online Services Terms and the Data protection Addendum
+
+### What's in the Microsoft Privacy Statement?
+It explains what personal data Microsoft collects, how Microsoft uses it, and for what purposes.
+
+The privacy statement covers all of Microsoft' services, websites, apps, software, servers, and devices. This list ranges from enterprise and server products to devices that you use in your home to software that students use at school.
+
+It also provides information that's relevant to specific products such as windows and Xbox.
+
+### What's in the Online Services Terms?
+(OST) is a legal agreement between Mricrosoft and the customer. The OST details the obligations by both parties with respect to the processing and security fo customer data and personal data. The OST applies specifically to Microsoft's online services that you license through a subscription, including Azure, Dynamics 365, Office 365, and Bing Maps.
+
+### What is the Data Protection Addendum?
+
+(DPA) further defines the data processing and security terms for online services. These terms include:
+- Compliance with laws.
+- Disclousure of processed data.
+- Data Security, which includes security practices and policies, data encryption, data access customer responsibilities, and compliance with auditing.
+- Data transfer, retention and deletion.
+
+## Explore the Trust Center
+The [Trust Center](https://www.microsoft.com/trust-center?rtc=1%3Fazure-portal%3Dtrue) showcases Microsoft's principles for maintaining data integrity in the cloud and how Microsoft implements and supports security, privacy, compliance, and transparency in all Microsoft cloud products and services. The Trust Center is an important part of the Microsoft Trusted Cloud initiative and provides support and resources for the legal and compliance community.
+
+## Access Azure compliance documentation
+
+The [Azure compliance documentation](https://docs.microsoft.com/en-us/azure/compliance/) provides you with detailed documentation about legal and regulatory standards and compliance on Azure.
+
+Here you find compilance offerings across these categories:
+- Global
+- US goverment
+- Financial services
+- Health
+- Media and manofacturing
+- Regional
+
+## What is Azure Goverment?
+Is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of US federal agencies, state and local governments, and their solution provides. Azure Goverment offers physical isolation from non-US goverment deployments and provides screened US personnel.
+
+Azure Government services handle data that is subject to certain goverment regulations and requirements:
+- Federal Risk and Authorization Management Program(FedRAMP)
+- National Institute fo Standards and Technology (NIST) 800.171 Defense Industrial Base (DIB)
+- International Traffic in Arms Regulations (ITAR)
+- Internal Revenue Service (IRS) 1075
+- Deparment of Defense (DoD) L4
+- Criminal Justice Information Service (CJIS)
+
+To provide the highest level of security and compliance, Azure Goverment uses physically isolated datacenters and networks located only in the US. Azure Government customers, such as the US federal, state and local goverment or their partners, are subject to validation of eligibility.
+
+## What is Azure China 21Vianet?
+It is operated by 21Vianet. It's a physically separated instance of cloud services located in China. Azure China 21Vianet is independently operated and transacted by Shanghai Blue Cloud Technology Co.
+
+According to the China Telecommunication Regulation, providers of cloud services, infrastructure as a service (IaaS) and platform as a service (PaaS), must have value-added telecom permits. Only locally registered companies with less than 50 percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft.
+
+### Azure products and services available in China
+The Azure services are based on the same Azure, Office 365, and Power BI thechnologies that make up the Microsoft global cloud service, with comparable service levels. Azure agreements ond contracts in China, where applicable, are signed between customers and 21Vianet.
+
+Azure includes the core components of IaaS, PaaS, and software as a service (SaaS).These components include network, storage, data management, identity management, and many other services.
 
