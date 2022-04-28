@@ -1325,3 +1325,114 @@ The Azure services are based on the same Azure, Office 365, and Power BI thechno
 
 Azure includes the core components of IaaS, PaaS, and software as a service (SaaS).These components include network, storage, data management, identity management, and many other services.
 
+---
+
+# [Plan and manage your Azure costs](https://docs.microsoft.com/en-us/learn/modules/plan-manage-azure-costs/1-introduction)
+
+## Compare costs by using the Total Cost of Ownership Calculator
+
+### What's the TCO Calculator?
+
+The TCO Calculator helps you estimate the cost savings of operating your solution on Azure over time, instead of in your on-premises datacenter.
+
+The term *total cost of ownership* is commonly used in finance. It can be hard to see all the hidden costs related to operating a technology capability on-premises. Software licenses and harware are additional costs.
+
+With the TCO Calculator, you enter the details af your on-premises workloads. Then you review the suggested industry average cost (which you can ajust) for related operational costs. These costs include electricity, network maintenance, and IT labor. You're then presented with a side-by-side report. Using the report, you can compare those costs with the same workloads running on Azure.
+
+### How does the TCO Calculator work?
+
+Working with the TCO Calculator involves three steps:
+- Define your workloads
+- Adjust assumptions
+- View the report
+
+## Purcase Azure services
+
+### What types of Azure subscriptions can I use?
+
+Azure offers both free and paid subscription options to fit your needs and requirements. They are:
+- **Free Trial**
+  A free trial subscription provides you with 12 months of popular free services, a credit to explore any Azure service for 30 days, and more than 25 services that are always free. Your Azure services are disabled when the trial ends of when your credit expires for paid products, unless you upgrade to a paid subscription.
+
+- **Pay-as-you-go**
+  A pay-as-you-go subscription enables you to pay for what you use by attaching a credit or debit card to your account. Organizations can apply for volume discounts and prepaid invoicing.
+
+- **Member offers**
+  Your existing membership to certain Microsoft products and services might provide you with credits for your Azure account and reduced rates on Azure services. For example, member offers are available to Visual Studio subscribers, Microsoft Partner Network members, Microsoft for Startups members, and Microsoft Imagine members.
+
+
+### What factors affect cost?
+
+The way you use resources, your subscription type, and pricing from third-party vendors are common factors.
+
+#### Resource type
+
+A number of factors influence the cost of Azure resources. They depend on the type of resource or how you customize it.
+
+For example, with a storage account you specify a type (such as block blob storag or table storage), a performance tier, and an access tier. These selections present different costs.
+
+#### Resource usage
+
+In azure, you're always charged based on what you use.
+
+#### Azure subscription types
+
+Some Azure subscription types also include usage allowances, with affect costs.
+
+
+### Does location or network traffic affect cost?
+When you provision a resource in Azure, you need to define the location of where it will be deployed. Let's see why this decision can have cost consequences.
+
+#### Location
+
+Azure infrastructure is distributed globally, which enables you to deploy your services centrally or provision your services closest to where your customers use them.
+
+Different regions can have different associated prices. Because geographic regions can impact where your network traffic flows, network troffic is a cost influence to consider as well.
+
+#### Zones for billing of network traffic
+
+Billing zones are a factor in determining the cost of some Azure services.
+
+Bandwith refers to data moving in and out of Azure datacenters. Some inbound data transfers are free. For outbound data transfers, data transfer pricing is based on *zones*.
+
+A zone is a geographical grouping of Azure regions for billing purposes. The following zones include some of the regions as shown here:
+
+- Zone 1: Australia Central, West US, East US, Canada West, West Europe, France Central, and others
+- Zone 2: Australia East, Japan West, Central India, Korea South, and others
+- Zone 3: Brazil South, South Africa North, South Africa West, UAE Central, UAE North
+- DE Zone 1: Germany Central, Germany Northeast
+
+### How can I estimate the total cost?
+
+An accurate cost estimate takes all of the preceding factors into account. Fortunately, the Azure Pricing calculator helps you with that process.
+
+## Manage and minimize total cost on Azure
+
+Here are some recommended practices that can help you minimize your costs.
+
+- **Understand estimated costs before you deploy**: Calculate your projected costs by using Pricing calculator and the Total Cost of Ownership (TCO) Calculator. Only add the products, services, and resources that you need for your solution.
+
+- **Use Azure Advisor to monitor your usage**: Ideally, you want your provisioned resources to match your actual usage.Azure Advisor identifies unused or underutilized resources and recommends unused resources that you can remove. This information helps you configure your resources to match your actual workload.
+
+- **Use Spending limits to restrict your spending**
+
+- **Use Azure Reservation to prepay**:It offers discounted prices on certain Azure services. Azure Reservation can save you up to 72 percent as compared to pay-as-you-go prices. To receive a discount, you reserve services and resources by paying in advance.
+
+- **Choose low-cost locations and regions**
+
+- **Research available cost-saving offers**
+
+- **Use Azure Cost managemet + billing to control spending**
+
+- **Apply tags to identify cost owners**: *tags* help you manage costs associated with the different groups of Azure products and resources. You can apply tags to groups af Azure resources to organize billing data.
+
+- **Resize underutilized virtual machines**
+
+- **Deallocated virtual machines during off hours**
+
+- **Delete unused resources**
+
+- **Migrate from IaaS to PaaS services**:While you can thing of IaaS as direct access to compute infrastructure, PaaS provides ready-made development and deployment environments that are managed for you.
+
+- **Save on licensing costs**: Choose cost-effective operating systems, use Azure Hybrid benefit to repourpose software licenses on Azure.
+
