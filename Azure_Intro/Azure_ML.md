@@ -1436,3 +1436,76 @@ Here are some recommended practices that can help you minimize your costs.
 
 - **Save on licensing costs**: Choose cost-effective operating systems, use Azure Hybrid benefit to repourpose software licenses on Azure.
 
+---
+# [Choose the right Azure services by examining SLAs and service lifecycle](https://docs.microsoft.com/en-us/learn/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements)
+
+## What are service-level agreements(SLAs)?
+
+A *service-level agreement*(SLA) is a formal agreement between a service company and the customer. For Azure, this agreement defines the performance standards that Microsoft commits to for you, the customer.
+
+### Why are SLAs important?
+When you build applicatons on Azure, the availability of the services that you use affect your application's performance. Understanding the SLAs involved can help you establish the SLA you set with your customers.
+
+### What's in a typical SLA?
+It breaks down into these sections:
+- Introduction
+- Generalterms
+- SLA details
+
+### How do percentages relate to total downtime?
+*Downtime* refers to the time duration that the service is unavailable. 
+
+Here's a table to give you a sense of how total downtime decreases as the SLA percentage increases from 99 percent to 99.999 percent
+
+|SLA percentage|	Downtime per week	|Downtime per month|	Downtime per year|
+|--------------|--------------------|------------------|-------------------|
+|99	           | 1.68 hours	        |7.2 hours	       |   3.65 days|
+|99.9	         | 10.1 minutes	      |43.2 minutes	     | 8.76 hours|
+|99.95	       | 5 minutes	        |21.6 minutes	     | 4.38 hours|
+|99.99	       | 1.01 minutes	      |4.32 minutes	     | 52.56 minutes|
+|99.999	       | 6 seconds	        |25.9 seconds	     | 5.26 minutes|
+
+These amounts are cumulative, which means that the duration of multiple different services outgages would be combined, or added together.
+
+### What are service credits?
+A *service credit* is the percentage of the fees you paid that are credited back to you according to the claim approval process.
+
+An SLA describes how Microsoft responds when an Azure service fails to perform to its specification.
+### How can I request a service credit from Microsoft?
+Typically, you need to file a claim with Microsoft to receive a service credit. If you purchase Azure services from a Cloud Solition Provider (CSP) partner, your CSP typically manages claims process.
+
+Each SLA specifies the timeline by which you must submit your claim and when Microsoft processes your claim. For many services, you must submit your claim by the end of the calendar month following the month in which the incident occured.
+
+## Define your application SLA
+An *application SLA* defines the SLA requirements for a specific application. This term typically refers to an application that *you* build on Azure.
+
+There are many design decisions you con make to improve the availability and resiliency of the applications and services you build on Azure. These decisions extend beyond just the SLA for a specific service. In this part, you'll explore a few of these considerations.
+
+A good place to start is to have a discussion with your team about how important the availability of each application is to your business.
+
+- Business impact
+- Effect on other business operations
+- Usage patterns: define when and how users access your application.One question to consider is whether the availability requirement differs between critical and non-critical time periods.
+
+## Design your application to meet your SLA
+- **Identify your workloads**: A *workload* is a distinct capability or task that's logically separated from other tasks, in terms of business logic and data storage requirements. Each workload defines a set of requirements for availability,scalability, data consistency, and disaster recovery.
+
+- **Combine SLAs to compute the composite SLA**: After you've identified the SLA for the individual workloads, you might notice that those SLAs are not all the same.
+  
+  The precess of combining SLAs helps you compute the *composite SLA* for a set of services. Computing the composite SLA requires that you **multiply** the SLA of **each individual service**.
+
+### What happens when the composite SLA doesn't meet your needs?
+- **Choose customization options that fit your required SLA**: Each of the workloads defined proviously has its own SLA, and the customization choices you make when your provision each workload affects that SLA.
+
+  Make sure that your purchasing decision take into account the impact on the SLA for the Azure services that you choose. Doing so ensures that the SLA supports your required application SLA.
+
+- **Build availability requirements into your design**: There are application design considerations you can use that relate to the underlying cloud infrastructure.
+  
+  An *availiability* zone is a unique physical location within an Azure region.Deploying two or more instances of an Azure virtial machine across two or more availiability zones raises the virtual machine SLA to 99.99 percent.
+
+- **Include redundancy to increase availability**: To ensure high availability, you might plan for your application to have duplicate components across several regions, known as *redundancy*. Conversely, to minimize costs during non-critical periods, you might run your application only in a single region.
+
+  To achieve maximum availiability in your application, add redundancy to every single part of the application. This redundancy includes the application itself, as well as the underlying services and infrastructure. Be aware, however, that doing so can be difficult and expensive, and often results in solutions that are more complex than they need to be.
+
+
+## Acess preview services and preview features
